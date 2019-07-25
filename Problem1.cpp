@@ -6,8 +6,8 @@
 #include <algorithm>
 #include <vector>
 
-// Runtime: O(n)
-// Space: O(n)
+// Runtime: O(n) - Iterative and Recursive
+// Space: O(n) - Iterative | O(1) recursive.
 // Approach:
 // Iterative - add to vector till the end of list. then traverse the vector in reverse and create new ListNodes.
 // Recursive - Traverse to the end and assign the last element as head. Traverse back and assign head->next to the coming elements with their next as NULL.

@@ -8,7 +8,8 @@
 
 // Runtime: O(n)
 // Space: O(1)
-// Approach: Use floyd's algorithm to check for loop. Then use the fast and slow pointers to find the loop starting point.
+// Approach: Traverse with a count till the end recursively. Update count starting from end. If count == n then remove
+// that node and exit.
 
 using namespace std;
 
