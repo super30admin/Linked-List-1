@@ -6,6 +6,10 @@
 #include <algorithm>
 #include <vector>
 
+// Runtime: O(n)
+// Space: O(1)
+// Approach: Use floyd's algorithm to check for loop. Then use the fast and slow pointers to find the loop starting point.
+
 using namespace std;
 
 struct ListNode {
