@@ -1,5 +1,5 @@
 // Time Complexity  : O(n) --> We iterate through the entire linked list
-// Space Complexity : O(n) --> We create a new linked list (current) that reverses all the values from the previous linked list(head)
+// Space Complexity : O(1) --> In place substitution so the space complexity is O(1)
 // Did this code successfully run on Leetcode : Yes	
 // Any problem you faced while coding this : None
 
