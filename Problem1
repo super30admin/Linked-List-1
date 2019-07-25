@@ -1,0 +1,21 @@
+//Time Complexity: O(n)
+//Space Complexity: O(n)
+//Accepted  in Leetcode: Yes
+
+
+
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        ListNode prev = null; //this is where the current first node will point to when it becomes the last node in reversed LL
+        ListNode ptr;
+        while(head!=null) 
+        {
+           ptr = head;
+           head = head.next; //increment head
+           ptr.next = prev; //change the pointer in the opposite direction
+           prev = ptr; //move the previous ahead
+        }
+        
+        return prev;
+    }
+}
