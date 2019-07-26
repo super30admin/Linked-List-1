@@ -1,5 +1,4 @@
-// https://leetcode.com/problems/linked-list-cycle-ii/
-
+//https://leetcode.com/problems/linked-list-cycle-ii/
 import java.util.HashSet;
 
 public class linkedListCycle {
@@ -68,7 +67,7 @@ public class linkedListCycle {
         head = head.next;
         head.next = new ListNode(0);
         head = head.next;
-        head.next = new ListNode(-4);
+        head.next = new ListNode(-5);
         head = head.next;
         head.next = temp;
         System.out.println(detectCycle(root).val);
