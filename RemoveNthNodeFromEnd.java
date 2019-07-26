@@ -1,5 +1,6 @@
 //Approach: Traverse till the sth node,
-//Create a sliding window beterrn then make s.next = s.next.next
+//Create a sliding window between f and s ,
+//When the f reaches null ,then make s.next = s.next.next
 //Run on Leetcode? Yes
 //Time Complexitiy:O(n)
 //Space Complexity: O(1)
