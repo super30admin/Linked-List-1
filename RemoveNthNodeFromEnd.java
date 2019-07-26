@@ -1,4 +1,5 @@
-//Approach: Traverse till the sth node, then make s.next = s.next.next
+//Approach: Traverse till the sth node,
+//Create a sliding window beterrn then make s.next = s.next.next
 //Run on Leetcode? Yes
 //Time Complexitiy:O(n)
 //Space Complexity: O(1)
@@ -16,12 +17,14 @@ class Solution {
         if(head==null) return null;
         else{
           ListNode dummy = new ListNode(0);
-          dummy.next = head;
-          ListNode f = dummy;
-          ListNode s = dummy;
+          dummy.next = head; 
+          ListNode f = dummy; //head 
+          ListNode s = dummy; //head
+            
           for(int i=1;i<=n+1;i++)
-              f = f.next;
-          while(f!=null){
+              f = f.next; //Go till  1,2,3,4,5 n positons : go till nth pass : there will be a sliding window 
+            
+          while(f!=null){ //there is a sliding window between the two 
               f = f.next;
               s = s.next;
         }
