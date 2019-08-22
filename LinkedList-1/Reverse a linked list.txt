@@ -1,0 +1,28 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+
+// Time comp = O(n) n= size of LL
+// Space comp = O(1)
+// executed on leetcode
+class Solution {
+    public ListNode reverseList(ListNode head) 
+    {
+        if(head==null|| head.next==null)
+            return head;
+        ListNode c=head,temp=null;
+        while(c.next!=null)
+        {
+            temp=c.next;
+            c.next=temp.next;
+            temp.next=head;
+            head=temp;
+        }
+        return head;
+    }
+}
