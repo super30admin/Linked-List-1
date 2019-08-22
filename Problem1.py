@@ -9,8 +9,8 @@ class Solution:
 		# Time Complexity : O(n) where n is the number of elements in the array
 		# Space Complexity : O(n) because we are storing the entire linked link into an array and reversing that and creating a new linkedlist
 		# Accepted on Leetcode
-		if head == None:
-			return None
+		if head == None or head.next == None:
+			return head
 		l = []
 		temp = head
 		while temp != None:
@@ -29,8 +29,8 @@ class Solution:
 		# Time Complexity : O(n) where n is the number of elements in the Linked list
 		# Space Complexity : Constant space actually we are not using extra space we are just changing the direction of the links
 		# Accepted on Leetcode
-		if head == None:
-			return None
+		if head == None or head.next == None:
+			return head
 		current = head
 		new = old = None
 		while current != None:
@@ -39,3 +39,15 @@ class Solution:
 			old = current
 			current = new
 		return old
+
+	def reverseList3(self, head):
+		if head == None or head.next == None:
+			return head
+		cur = head
+		while cur.next != None:
+			temp = cur.next
+			cur.next = temp.next
+			temp.next = head
+			head = temp
+			cur = head
+		return head
