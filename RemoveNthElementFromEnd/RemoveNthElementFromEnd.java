@@ -7,6 +7,9 @@
  * }
  */
 
+// Time Complexity : O(n)
+// Space Complexity : O(1)
+
  class RemoveNthElementFromEnd {
 	public ListNode removeNthFromEnd(ListNode head, int n) {
 

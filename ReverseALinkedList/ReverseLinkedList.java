@@ -9,6 +9,9 @@
  * 6-5-4-3-2-1-null
  */
 
+// Time Complexity : O(n)
+// Space Complexity : O(1)
+
 //Iterative solution
 class ReverseLinkedList {
 	public ListNode reverseList(ListNode head) {

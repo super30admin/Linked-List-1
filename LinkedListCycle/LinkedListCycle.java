@@ -10,6 +10,9 @@
  * }
  */
 
+// Time Complexity : O(n)
+// Space Complexity : O(1)
+
 class LinkedListCycle {
 	public ListNode detectCycle(ListNode head) {
 		
