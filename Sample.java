@@ -71,3 +71,50 @@ class Solution {
         return head;
     }
 }
+
+// Time Complexity :O(n)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Some test cases failed.
+// Any problem you faced while coding this : 
+
+
+// Your code here along with comments explaining your approach
+// Approach:
+//1. Keep 2 pointers 'slow','fast'. slow moves one step at a time. Fast moves 2 steps at a time. We know there is a cycle when both meet.
+//2. Intuition: The head as well as point of meet of slow-fast pointers are at same distance from start of cycle.  
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode detectCycle(ListNode head) {
+        if(head==null) return null;
+        System.out.println(head.next);
+        if(head.next==null) return null;
+        if(head.next.next==head) return head;
+        ListNode slow = head.next;
+        ListNode fast = head.next.next;
+        
+        while(slow!=fast){
+            if(fast.next==null || fast.next.next==null){
+                return null;
+            }
+            slow=slow.next;
+            fast=fast.next.next;
+        }
+        
+        ListNode temp = head;
+        while(temp!=fast){
+            temp=temp.next;
+            fast=fast.next;
+        }
+        return temp;
+    }
+}
