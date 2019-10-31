@@ -4,7 +4,7 @@
 #         self.val = x
 #         self.next = None
 
-
+#Accepted on leetcode
 #Time complexity: O(n) as we are traversing through the entire linked list
 #Space complexity: O(1) as we are changing the links and not creating new linked list nor using other data structure
 #Explanation: This is iterative apporach where I am traversing through each node of the list, store its next value in next and change
