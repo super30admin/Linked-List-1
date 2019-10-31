@@ -21,5 +21,5 @@ class Solution:
             current.next = prev
             prev = current
             current = next
-            head = prev
+        head = prev
         return head
