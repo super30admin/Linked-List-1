@@ -1,0 +1,56 @@
+/*
+Time Complexity: O(n)
+
+Space Complexity: O(1)
+
+LeetCode: Successful
+
+Approach:
+
+take a counter i intitialized to 1 and iterate throught the linkedlist, till i = the number n.
+now, take two pointers, pointed to head, and again itereate the previous pointer through the linkedlist.
+
+At this point the other 2 pointers that we took, are at target node and target -1 node.
+
+remove the node by changing  (target-1).next =target.next;
+
+
+*/
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        
+        
+        if(head==null||n==0) return head;
+        ListNode temp=head;
+        ListNode temp1=head;
+        ListNode temp2=head;
+        
+        int i=1;
+        while(temp.next!=null&&i<n)
+        {
+            i++;
+            temp=temp.next;
+        }
+        temp2=head;
+        while(temp.next!=null)
+        {
+            temp1=temp2;
+            temp2=temp2.next;
+            temp=temp.next;
+        }
+        
+        if(temp2==head) return temp2.next;
+        temp1.next=temp2.next;
+        
+        return head;
+    }
+}
