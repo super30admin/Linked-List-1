@@ -1,8 +1,7 @@
 // Time Complexity :O(n)
 // Space Complexity :1
 // Did this code successfully run on Leetcode :Yes
-// Any problem you faced while coding this :I was getting an error saying null pointer exception but after using dummy node it was resolved.
-
+// Any problem you faced while coding this :
 
 // Your code here along with comments explaining your approach
 
