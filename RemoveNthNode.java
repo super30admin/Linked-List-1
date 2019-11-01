@@ -1,30 +1,27 @@
+/*
+TC: O(n) 
+SC: O(1) constant.
+*/
 
 class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
-    if(head == null)
-        return null;
- 
-    ListNode p = head;
-    int len = 0;
-    while(p != null){
-        len++;
-        p = p.next;
-    }
- 
-    int index = len-n+1;
-    if(index==1)
-        return head.next;
- 
-    p = head;
-    int i=0;
-    while(p!=null){
-        i++;
-        if(i==index-1){
-            p.next = p.next.next;
+        if(head == null || head.next == null)
+            return null;
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode slow = dummy;
+        ListNode fast = dummy;
+        int count = 0;
+        while(count < n){
+            fast = fast.next;  
+            count++;
         }
-        p=p.next;
+        
+        while(fast.next != null){   
+            slow = slow.next;
+            fast = fast.next;
+        }
+        slow.next = slow.next.next; 
+        return dummy.next;  
     }
- 
-    return head;
-}
 }
