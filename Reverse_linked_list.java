@@ -1,3 +1,9 @@
+TC:O(n)
+SC:O(1)
+
+Failed in Leetcode
+
+
 class Solution {
     public ListNode reverseList(ListNode head) {
         ListNode curr, prev, succeed;
