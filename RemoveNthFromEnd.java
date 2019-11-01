@@ -36,3 +36,25 @@ class RemoveNthFromEnd {
         return head;
     }
 }
+
+class RemoveNthFromEnd2 {
+public ListNode removeNthFromEnd(ListNode head, int n) {
+    if(null == head){
+        return head;
+    }
+    ListNode dummy = new ListNode(Integer.MIN_VALUE);
+    dummy.next = head;
+    ListNode slow = dummy, fast = dummy;
+    int count = 0;
+    while(count <= n){
+        fast = fast.next;
+        count++;
+    }
+    while(null != fast){
+        slow = slow.next;
+        fast = fast.next;
+    }
+    slow.next = slow.next.next;
+    return dummy.next;
+}
+}
