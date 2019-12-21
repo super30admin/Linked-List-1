@@ -24,7 +24,7 @@ class Solution {
             
         ListNode temp = head;
         while(temp != null){
-            //s1.add(temp.val);
+            s1.add(temp.val);
             temp = temp.next;
         }
         
