@@ -22,17 +22,21 @@ class Solution {
             return null;
         else
         {
+            //keep a counter
             int cnt = 0;
         
+            //two pointer approach
             ListNode fP = head;
             ListNode sP = head;
 
+            //run first pointer till end and count the number of nodes
             while(fP != null)
             {
                 fP = fP.next;
                 ++cnt;
             }
         
+            //if we need to remove first node from the list
             if(cnt == n)
             {
                 head = head.next;
@@ -40,12 +44,15 @@ class Solution {
             }
             else
             {
+                //run second pointer till one node before the node to be deleted
                 while(cnt > n+1)
                 {
                     sP = sP.next;
                     --cnt;
                 }
 
+                //delete the node
+                //return the head
                 if(sP.next != null)
                 {
                     sP.next = sP.next.next;
