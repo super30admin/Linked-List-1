@@ -1,0 +1,126 @@
+LINKED LIST-1
+
+#######################################################
+##Problem 50: Detect Linked List cycle#######################
+
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+
+# Method: make 2 pointers slow and fast (Floyd's algorithm)
+# move slow pointer by 1 and fast pointer by 2 untill they meet at some point
+# after they meet, set slow pointer to head and increase slow and fast by 1 each
+# the 2 pointers evetually meet at the start of the cycle
+
+# TC=O(2n)=O(n)
+# SC=O(1)
+class Solution(object):
+    def hasCycle(self, head):
+        """
+        :type head: ListNode
+        :rtype: bool
+        """
+        flag=False #return type
+        
+        if(head==None or head.next==None):
+            return flag
+        
+        slow=fast=head
+        while(fast!=None and fast.next!=None):   #for case when there is no cycle fast can be null
+            slow=slow.next
+            fast=fast.next.next
+            if(slow==fast):
+                flag=True
+                break
+        if(flag==False):
+            return flag
+        
+        slow=head #set slow to head
+        while(slow!=fast):
+            slow=slow.next
+            fast=fast.next
+        
+        # return slow  # if asked about start of cycle
+        return flag    
+        
+#############################################
+#############################################
+##Problem 49: Delete nth element from end of the linked list######
+
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+
+# make a gap of n between slow and fast pointer
+# then move both pointers at same pace
+# TC=O(n) and SC=O(1)
+class Solution(object):
+    def removeNthFromEnd(self, head, n):
+        """
+        :type head: ListNode
+        :type n: int
+        :rtype: ListNode
+        """
+        if(head==None or head.next==None): return None # handling edge case where there is only 0/1 node
+        slow=fast=head
+        
+        for i in range(n):
+            fast=fast.next
+        
+        if(fast==None):   # handling edge case where there are 2 nodes
+            return slow.next
+            
+        while(fast.next!=None):
+            slow=slow.next
+            fast=fast.next
+        slow.next=slow.next.next
+        
+        return head
+        
+-------------------------------------------
+Using dummy node method discussed in class
+
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+
+# make a gap of n between slow and fast pointer
+# then move both pointers at same pace
+# TC=O(n) and SC=O(1)
+class Solution(object):
+    def removeNthFromEnd(self, head, n):
+        """
+        :type head: ListNode
+        :type n: int
+        :rtype: ListNode
+        """
+        if(head==None or head.next==None): return None # handling edge case where there is only 0/1 node
+        
+        #make a dummy node before the linked list starts to handle case with 1 or 2 nodes
+        dummy=ListNode(0)
+        dummy.next=head
+        slow=fast=dummy
+               
+        for i in range(n):
+            fast=fast.next
+        
+
+        while(fast.next!=None):
+            slow=slow.next
+            fast=fast.next
+        slow.next=slow.next.next
+        
+        return dummy.next
+        
+#############################################
+
+
