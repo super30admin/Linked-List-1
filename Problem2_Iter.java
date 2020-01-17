@@ -18,52 +18,25 @@
 
 class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        if(head == null)
-            return null;
-        else
+        ListNode slow = head;
+        ListNode fast = head;
+        
+        while(n > 0 && fast != null)
         {
-            //keep a counter
-            int cnt = 0;
-        
-            //two pointer approach
-            ListNode fP = head;
-            ListNode sP = head;
-
-            //run first pointer till end and count the number of nodes
-            while(fP != null)
-            {
-                fP = fP.next;
-                ++cnt;
-            }
-        
-            //if we need to remove first node from the list
-            if(cnt == n)
-            {
-                head = head.next;
-                return head;
-            }
-            else
-            {
-                //run second pointer till one node before the node to be deleted
-                while(cnt > n+1)
-                {
-                    sP = sP.next;
-                    --cnt;
-                }
-
-                //delete the node
-                //return the head
-                if(sP.next != null)
-                {
-                    sP.next = sP.next.next;
-                    return head;
-                }
-                else
-                {
-                    sP = null;
-                    return head;
-                }
-            }
+            fast = fast.next;
+            --n;
         }
+        
+        if(slow != fast && fast != null)
+        {
+            while(fast.next != null)
+            {
+                slow = slow.next;
+                fast = fast.next;
+            }
+            slow.next = slow.next.next;
+            return head;
+        }
+        return slow.next;
     }
 }
