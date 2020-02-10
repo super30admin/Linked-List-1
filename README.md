@@ -1,6 +1,6 @@
 # Linked-List-1
 
-## Problem1 (https://leetcode.com/problems/reverse-linked-list/)
+## Problem48 (https://leetcode.com/problems/reverse-linked-list/)
 Reverse a singly linked list.
 
 Example:
@@ -11,7 +11,7 @@ Follow up:
 
 A linked list can be reversed either iteratively or recursively. Could you implement both?
 
-## Problem2 (https://leetcode.com/problems/remove-nth-node-from-end-of-list/)
+## Problem49 (https://leetcode.com/problems/remove-nth-node-from-end-of-list/)
 Given a linked list, remove the n-th node from the end of list and return its head.
 
 Example:
@@ -28,7 +28,7 @@ Follow up:
 
 Could you do this in one pass?
 
-## Problem3 (https://leetcode.com/problems/linked-list-cycle-ii/)
+## Problem50 (https://leetcode.com/problems/linked-list-cycle-ii/)
 Given a linked list, return the node where the cycle begins. If there is no cycle, return null.
 
 To represent a cycle in the given linked list, we use an integer pos which represents the position (0-indexed) in the linked list where tail connects to. If pos is -1, then there is no cycle in the linked list.
