@@ -58,3 +58,41 @@ No.
               #Removing node at slow pointer
               slow.next=slow.next.next
               return dummy.next
+
+# Problem 3
+## Time Complexity :
+O(n)
+
+## Space Complexity :
+O(1)
+
+## Did this code successfully run on Leetcode :
+Yes.
+## Any problem you faced while coding this :
+No. 
+
+## Your code here along with comments explaining your approach
+### Solution:
+            class Solution:
+                def detectCycle(self, head: ListNode) -> ListNode:
+                    #Edge Case
+                    if head==None:
+                        return None
+                    #Initializing pointers
+                    slow=head
+                    fast=head
+                    flag=False
+                    #Base Case
+                    while(fast!=None or fast.next!=None):
+                        slow=slow.next
+                        fast=fast.next.next
+                        if(slow==fast):
+                            flag=True
+                            break       #Breaking the loop when 2 pointers meet
+                    if(!flag):
+                        return None
+                    slow=head       #Resetting slow pointer
+                    while(slow!=fast):      #Incrementing both pointers till they meet
+                        slow=slow.next
+                        fast=fast.next
+                    return slow
