@@ -26,15 +26,35 @@ No.
 
 # Problem 2
 ## Time Complexity :
-
+O(n)
 
 ## Space Complexity :
-
+O(1)
 
 ## Did this code successfully run on Leetcode :
+Yes.
 
 ## Any problem you faced while coding this :
-
+No.
 
 ## Your code here along with comments explaining your approach
 ### Solution:
+      class Solution:
+          def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
+              dummy=ListNode(-1)  #Creating dummy node for edge case
+              dummy.next=head #Pointing dummy node to head
+              count=0
+              #Initializing pointers
+              slow=dummy
+              fast=dummy
+              #Logic1: Incrementing fast pointer till 'n' nodes apart
+              while count<=n:
+                  fast=fast.next
+                  count+=1
+              #Logic2: Incrementing both pointers till null
+              while(fast!=None):
+                  slow=slow.next
+                  fast=fast.next
+              #Removing node at slow pointer
+              slow.next=slow.next.next
+              return dummy.next
