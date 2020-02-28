@@ -11,7 +11,7 @@ Yes.
 No. 
 
 ## Your code here along with comments explaining your approach
-### Solution:
+### Solution 1: Iterative
       class Solution:
           def reverseList(self, head: ListNode) -> ListNode:
               prev = None #Initialize prev
@@ -22,7 +22,17 @@ No.
                   curr.next = prev
                   prev = curr
               return prev
-              
+### SOLUTION 2: Recursive
+            class Solution:
+                def reverseList(self, head: ListNode) -> ListNode:
+                    return self.helper(head)
+
+                def helper(self, head, prev=None):
+                    if not head:
+                        return prev
+                    curr = head.next
+                    head.next = prev
+                    return self.helper(curr, head)
 
 # Problem 2
 ## Time Complexity :
