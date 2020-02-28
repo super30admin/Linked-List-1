@@ -23,3 +23,21 @@ class Solution {
         
     }
 }
+
+//Recursive
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        if(head == null || head.next == null) return head;
+        
+        //whole list reverses except head
+        ListNode R = reverseList(head.next);
+
+        //manipulate head.next.next pointer to point to head
+        head.next.next = head;
+
+        //point head to null
+        head.next = null;
+        
+        return R;
+    }
+}
