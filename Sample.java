@@ -16,7 +16,7 @@ Space Complexity : O(1)
 Did this code successfully run on Leetcode : Yes
   
 Approach 2  
-Recursive: 
+Recursive: Iterate the list till last but one node and reverse the pointers
 
 Time Complexity : O(n)
 Space Complexity : O(n)
