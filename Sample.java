@@ -41,6 +41,14 @@ Did this code successfully run on Leetcode : Yes
 
 Problem 3: Remove Nth Node From End of List
 
+Time Complexity :O(n)
+Space Complexity :O(1)
+Did this code successfully run on Leetcode :Yes
+
+create a dummy node at start of linked list
+start two pointers from this node and keep the difference of n
+change the slow.next pointers to remove the node
+
 
 
 
