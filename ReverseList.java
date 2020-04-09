@@ -6,6 +6,14 @@
 
 // Your code here along with comments explaining your approach
 public class Solution {
+    class ListNode {
+        int val;
+        ListNode next;
+        ListNode(int x) {
+            val = x;
+            next = null;
+        }
+    }
     public ListNode reverseList(ListNode head) {
         ListNode prev,dummy;
         dummy = null;
