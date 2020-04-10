@@ -36,3 +36,32 @@ public class Solution {
         return null; //no cycle
     }
 }
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+//time - O(n)
+//space - O(n) for the recursive stack
+
+//call stack
+// 1-2-3-4-null => 2-3-4-null => 3-4-null => 4-null
+//                               => 4-3-null (head.next.next = head and head.next = null)
+//                 =>4-3-2-null
+//    =>4-3-2-1-null (return current)
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        if(head == null || head.next == null)
+        {
+            return head;
+        }
+        ListNode current = reverseList(head.next);
+        head.next.next = head;
+        head.next = null;
+        return current;
+    }
+}
