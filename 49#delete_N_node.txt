@@ -1,0 +1,39 @@
+// Time Complexity : O(n)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : No
+
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        
+        /* brute force, calculate length and now to nth node from end 
+           ListNode cur = head;
+           int len = 0;
+           if(head == null || n <= 0) return head;
+           while(cur !=  null)
+           { len++; cur = cur.next;} 
+           
+           int i = len - n;
+           
+           cur  = head;   
+           while( i-- > 1){
+              cur = cur.next;
+           }
+           cur.next = cur.next.next;
+           
+           return head;
+        
+        */
+        
+        ListNode d= new ListNode(0);
+        ListNode s = d, f = d;  // two pointer fast and slow
+        d.next = head;       
+        while( n-- >=0) f = f.next; // make   fast pointer ahead of slow n points
+        while(f != null){  // when fast is at the end the slow is at nth node from the end
+            s = s.next;
+            f = f.next;
+        }
+        s.next = s.next.next; // change nth node prev pointer next to nth node next
+        return d.next; // return head
+    }
+}
