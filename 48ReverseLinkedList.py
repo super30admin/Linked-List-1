@@ -1,9 +1,9 @@
 """
 // Time Complexity :O(n) for traversing till the end of the list
 // Space Complexity :O(1)
-// Did this code successfully run on Leetcode : Iterative - YES/ Recursive-NO
-// Any problem you faced while coding this : Not able to assign
-pointer1.next values in recursive
+// Did this code successfully run on Leetcode : Iterative - YES/ Recursive-YES
+// Any problem you faced while coding this : NA
+
 
 //Explanation:
 #iterative
