@@ -12,7 +12,6 @@ pointer1 is initially None
 Perform reverse and shift pointer1,pointer2 and pointer3 .
 When pointer2 is None, return pointer1(Reversed LL)
 """
-
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, val=0, next=None):
