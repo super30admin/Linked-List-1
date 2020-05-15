@@ -15,3 +15,17 @@ var detectCycle = function(head) {
     }
     return null;
 };
+
+// --------------------------------------------------------------
+
+// Second solution with One Pass O(n) time solution with O(1) space
+
+const detectCycle = function(head) {
+    if(!head || !head.next) return null;
+    while(head !== null) {
+        head.val = 99999999;
+        head = head.next;
+        if(head === null) return null;
+        if(head.val === 99999999) return head;
+    }
+};
