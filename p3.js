@@ -18,7 +18,7 @@ var detectCycle = function(head) {
 
 // --------------------------------------------------------------
 
-// Second solution with One Pass O(n) time solution with O(1) space
+// Second solution with One Pass, O(n) time, O(1) space
 
 const detectCycle = function(head) {
     if(!head || !head.next) return null;
