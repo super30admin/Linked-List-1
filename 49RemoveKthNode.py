@@ -20,7 +20,6 @@ When i=6,10 - 6 = 4.Delete node at k = 4.
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
-
 class Solution:
     def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
         fast = slow = head
