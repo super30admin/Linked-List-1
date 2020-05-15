@@ -5,7 +5,7 @@
 // Did this code successfully run on Leetcode : Yes
 
 const removeNthFromEnd = function(head, n) { 
-    ListNode dummy = new ListNode(0);
+    let dummy = new ListNode(0);
     dummy.next = head;
     let slow = dummy, fast = dummy, count = 0;
     while(count <= n) {

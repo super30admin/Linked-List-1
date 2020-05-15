@@ -17,3 +17,21 @@ const reverseList = function(head) {
     cur.next = prev;
     return cur;
 };
+
+
+// ------------------------------------
+
+// Recursive solution 
+
+// Time Complexity : O(n)
+// Space Complexity : O(n)
+// Did this code successfully run on Leetcode: Yes
+
+const reverseList = function(head) {
+    if(!head) return head;
+    if(head.next === null) return head;
+    let r = reverseList(head.next);
+    head.next.next = head;
+    head.next = null;
+    return r;
+}
