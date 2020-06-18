@@ -1,0 +1,39 @@
+// Time Complexity : O(n) -where n is the number of nodes in the linked list.
+// Space Complexity : O(n) - stack space.
+// Did this code successfully run on Leetcode : Yes.
+// Any problem you faced while coding this : Recursive approach. Fill up the stack till the last element and start reversing it.
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        //base case
+        if(head==null || head.next ==null) return head;
+        
+        //logic 
+        ListNode r=reverseList(head.next);
+        //head=recursivestack.pop();
+        head.next.next=head;
+        head.next=null;
+        return r;
+        
+    }
+}
+
+
+// Time Complexity : O(n) -where n is the number of nodes in the linked list.
+// Space Complexity : O(1) 
+// Did this code successfully run on Leetcode : Yes.
+// Any problem you faced while coding this : Using pointers to reverse the linked list.
+
+
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        if(head==null ||head.next==null) return head;
+        ListNode prev=null;
+        while(head!=null){
+            ListNode temp=head.next;
+            head.next=prev;
+            prev=head;
+            head=temp;
+        }
+        return prev;
+    }
+}
