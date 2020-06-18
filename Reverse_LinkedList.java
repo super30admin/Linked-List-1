@@ -1,4 +1,19 @@
 
+/*
+1) Iterative Approach
+
+    Time Complexity : O(N)
+    Space Complexity: O(1)
+    Worked on leetcode :  YES
+
+2) Recursive Approach
+
+   
+
+    Time Complexity : O(N)
+    Space Complexity: O(N) recursive space
+    Worked on leetcode :  YES
+*/
 class ListNode {
     int val;
     ListNode next;
