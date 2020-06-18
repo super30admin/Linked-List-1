@@ -9,6 +9,36 @@
 
 public class RemoveLastNthNode {
 
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        
+        ListNode dummy =  new ListNode(0);
+        ListNode slow = dummy;
+        ListNode fast = dummy;
+//         dummy node points to head, created for handling head removal
+        
+        dummy.next = head;
+        
+        int count = 0;
+//         maintain size n window  and move fast pointer till counter reach nth 
+
+        while(count <= n){
+            fast = fast.next;
+            count++;
+        }
+        //  and then move slow pointer by one and fast by one till fast reaches end
+        //  now slow pointer will be at the node  before the node you want to delete
+
+        while(fast!=null){
+            fast = fast.next;
+            slow = slow.next;
+        }
+        // delete the node
+        slow.next = slow.next.next;
+        // return ddummy.next which is pointing to correct head all the time
+        return dummy.next;
+    }
+
+
     public ListNode removeNthFromEnd_UsingLength(ListNode head, int n) {
         
         
