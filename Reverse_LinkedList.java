@@ -33,4 +33,18 @@ public class Reverse_LinkedList{
         return curr;
         
     }
+
+    public ListNode reverseList_Recursion(ListNode head) {
+        
+        if ( head == null || head.next == null) return head;
+        
+        
+        ListNode res = reverseList_Recursion(head.next);
+        
+        head.next.next = head;
+        head.next = null;
+        
+        return res;
+        
+    }
 }
