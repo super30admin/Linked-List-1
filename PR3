@@ -1,0 +1,30 @@
+// Time Complexity : O(2n)-> worst case-> O(n) where n is the number of nodes
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this :No
+//Slow and fast pointers to find the cycle and then reset the slow pointer to the head and move each pointer by one step until they meet.Return the meeting point.
+
+public class Solution {
+    public ListNode detectCycle(ListNode head) {
+        ListNode slow=head;
+        ListNode fast=head;
+        boolean flag=false;
+        while(fast!=null && fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+            if(slow==fast){
+                flag=true;
+                break;
+            }
+        }
+        
+        if(flag==false)
+            return null;
+        slow=head;
+        while(slow!=fast){
+            slow=slow.next;
+            fast=fast.next;
+        }
+        return slow;
+    }
+}
