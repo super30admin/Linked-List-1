@@ -27,7 +27,38 @@ Follow up:
 Could you do this in one pass?
  */
 public class RemoveNthNodeFromEnd {
+	/**
+	 * single pass using slow and fast pointer
+	 * move fast pointer n steps ahead of slow
+	 * use dummy node to handle removal of the first node
+	 */
 	public ListNode removeNthFromEnd(ListNode head, int n) {
+        if(head == null) return head;
+        
+        if(head.next == null && n == 1) return null;
+        
+        ListNode dummy = new ListNode();
+        dummy.next = head;
+        
+        ListNode slow = dummy;
+        ListNode fast = dummy;
+        
+        while(n >= 0) {
+            fast = fast.next;
+            n--;
+        }
+        
+        while(fast != null) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+        
+        slow.next = slow.next.next;
+        
+        return dummy.next;
+    }
+	
+	public ListNode removeNthFromEndTwoPass(ListNode head, int n) {
         if(head == null) return null;
         
         if(head.next == null && n == 1) return null;

@@ -18,27 +18,37 @@ To represent a cycle in the given linked list, we use an integer pos which repre
 Note: Do not modify the linked list.
  */
 public class LinkedListCycle2 {
+	/**
+	 * using slow and fast pointer
+	 */
 	public ListNode detectCycle(ListNode head) {
-        ListNode slow=head, fast=head, res=null;
+        if(head == null || head.next == null) return null;
         
-        while(slow!=null && fast!=null && fast.next!=null)
-        {
+        ListNode slow=head, fast=head;
+        
+        //iterate till either we reach end of the list or slow == fast
+        while(fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
             
-            if(slow==fast)
-            {
-                ListNode slow1 = head;
-                
-                while(slow!=slow1)
-                {
-                    slow1=slow1.next;
-                    slow=slow.next;
-                }
-                
-                return slow;
+            if(slow == fast) {
+                break;
             }
         }
-        return null;
+        
+        // if slow != fast means no cycle
+        if(slow != fast) {
+            return null;
+        }
+        
+        slow = head;
+        
+        //start from collision point and head and go ahead one step at a time , meeting point is cycle start point
+        while(slow != fast) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+        
+        return slow;
     }
 }
