@@ -20,3 +20,9 @@ class Solution:
             fast = fast.next
         curr.next = prev
         return curr
+
+
+#time complexity - O(n) as we traverse through every node
+#space complexity - O(1), no extra space used
+
+#all test cases passed
