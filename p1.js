@@ -28,8 +28,7 @@ const reverseList = function(head) {
 // Did this code successfully run on Leetcode: Yes
 
 const reverseList = function(head) {
-    if(!head) return head;
-    if(head.next === null) return head;
+    if(!head || !head.next) return head;
     let r = reverseList(head.next);
     head.next.next = head;
     head.next = null;
