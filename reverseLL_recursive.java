@@ -1,25 +1,18 @@
+// Time Complexity : O(n)
+// Space Complexity : O(n)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : I first used some extra memory, i then realized
+// this can be done without memory
+
 class Solution {
-     ListNode prev=null;
     public ListNode reverseList(ListNode head) {
-        if(head==null)
-            return null;
-      
-        ListNode curr=head;
+        if(head==null || head.next==null)
+            return head;
+     
+        ListNode root=reverseList(head.next);
+        head.next.next=head;
+        head.next=null;
         
-        helper(prev,head);
-        
-        return prev;
-    }
-    
-    private void helper(ListNode prev, ListNode curr)
-    {
-        if(curr==null || prev==null)
-            return;
-        
-        ListNode temp=curr.next;
-        curr.next=prev;
-        prev=curr;
-        
-        helper(prev,temp);
+        return root;
     }
 }

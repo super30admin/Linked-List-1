@@ -1,5 +1,5 @@
 
-// O(n)
+// O(2n)
 // O(1)
 
 public class Solution {
