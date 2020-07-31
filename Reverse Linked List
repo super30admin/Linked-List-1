@@ -1,0 +1,31 @@
+Approach1 :  Here we can follow a simple iterative approach. 
+        We can keep two pointers, prev and current.
+        prev will be used to store the previous node to the current,
+        hence prev will start with None, and current will start from head
+        As we traverse, we will make a reverse connection from current to previous.
+        
+        But before making that connection, we have to store the current.next into some
+        variable, otherwise after reversing the link, we will loose the next node
+        
+        In the end when current reaches None, prev will be the last node,
+        hence head will be set to prev now
+  Time Complexity :O(N) 
+  Space Complexity : O(N) 
+  class Solution:
+    def reverseList(self, head: ListNode) -> ListNode:
+        prev = None
+        curr= head
+         while curr != None:
+            # storing next connection
+            temp  = curr.next
+            # reversing link
+            curr.next = prev
+            
+            #switching to next pair
+            prev = curr
+            curr = temp
+         head=prev
+         return head
+            
+        
+    
