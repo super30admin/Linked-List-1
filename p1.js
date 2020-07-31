@@ -29,8 +29,8 @@ const reverseList = function(head) {
 
 const reverseList = function(head) {
     if(!head || !head.next) return head;
-    let r = reverseList(head.next);
+    let newHead = reverseList(head.next);
     head.next.next = head;
     head.next = null;
-    return r;
+    return newHead;
 }
