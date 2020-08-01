@@ -26,6 +26,49 @@ Approach1 :  Here we can follow a simple iterative approach.
             curr = temp
          head=prev
          return head
+         
+      Approach 2: Three pointer Approach
+      Time Complexity :O(N)
+      Space Complexity :O(1)
+      # Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def reverseList(self, head: ListNode) -> ListNode:
+        ### Pointers
+        prev=None
+        current=head
+        fast=current.next
+        if head==None or head.next==None:
+            return head
+        while (fast!=None): #### Three Pointer Approach
+            current.next=prev
+            prev=current
+            current=fast
+            fast=fast.next
+        current.next=prev
+        return current
+ Approach 3: Recursive Method'
+ Time Complexity : O(N)
+ Space complexity : O(N) ---> recursive stack has O(N) elements
+ # Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def reverseList(self, head: ListNode) -> ListNode:
+        ## Base case
+        if head==None or head.next==None:
+            return head
+        ## Logic
+        p=self.reverseList(head.next)
+        head.next.next=head
+        head.next=None
+        return p
+ 
             
         
     
