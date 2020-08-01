@@ -35,9 +35,9 @@ class Solution:
         
         
 
-# APPROACH SLOW AND FAST POINTERS
-# Time Complexity : O(n)
-# Space Complexity : O(n)
+# APPROACH 2:  SLOW AND FAST POINTERS
+# Time Complexity : O(n), n: length of the linked list
+# Space Complexity : O(1)
 # Did this code successfully run on Leetcode : Yes
 # Any problem you faced while coding this : None
 #
