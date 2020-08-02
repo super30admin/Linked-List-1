@@ -1,0 +1,50 @@
+Approach1 :
+Time Complexity:O(2N)= O(N) = Cylce +Reset the pointer
+Space Complexity: O(1)
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def detectCycle(self,head: ListNode) -> ListNode:
+        slow,fast=head,head
+        flag=False
+        while (fast and fast.next):
+             ## Move Your slow by 1 X and Fast by 2*X
+            slow=slow.next
+            fast=fast.next.next
+            if slow is fast:
+                ### Slow and fast pointer will move 1X speed
+                flag=True
+                break
+        if not flag:
+            return None
+        slow=head
+        while(slow!=fast):
+            ##Slow and fast pointer will move 1X speed
+            slow=slow.next
+            fast=fast.next
+        return fast
+  Approach 2: Two Pointers without any flag
+  # Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def detectCycle(self,head: ListNode) -> ListNode:
+        fast = slow = head 
+        while fast and fast.next: 
+            fast = fast.next.next 
+            slow = slow.next
+            # if there is a cycle 
+            if slow is fast: # the head and slow nodes move step by step 
+                while head: 
+                    if head == slow: 
+                        return head 
+                    head = head.next 
+                    slow = slow.next 
+        return None
