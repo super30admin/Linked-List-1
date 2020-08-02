@@ -1,0 +1,27 @@
+Approach 1 : Two Pass Solution
+Time Complexity : O(2N) ---> First pass find the length of the node and iterate through till it comes to l-n node
+Space Complexity:O(1)
+Approach 1: 1 Pass solution
+Time Complexity : O(L=N)=O(N)
+Space COmplexity : O(1)
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
+        dummy=ListNode(0)
+        slow=dummy
+        fast=dummy
+        dummy.next=head
+        count=0
+        while(count<=n):
+            fast=fast.next
+            count+=1
+        ## so now slow pointer end up at node previous to node thwt we want to remove
+        while fast:
+            slow=slow.next
+            fast=fast.next
+        slow.next=slow.next.next
+        return dummy.next
