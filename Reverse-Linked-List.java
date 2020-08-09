@@ -30,3 +30,17 @@ class Solution {
         return curr;
     }
 }
+
+//TC: O(n)
+//SC: O(n)
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        //base
+        if(head == null || head.next == null) return head;
+        //logic
+        ListNode r = reverseList(head.next);
+        head.next.next = head;
+        head.next = null;
+        return r;
+    }
+}
