@@ -1,0 +1,41 @@
+// Time Complexity : O(N)
+// Space Complexity : O(N)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : No
+
+
+// Your code here along with comments explaining your approach
+Use 2 pointer and move second pointer initally to size - n node.
+Move pointer p1 to one node before the node to be deleted and then remove node. 
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        
+        ListNode dummyHead = new ListNode(-1, head);
+        ListNode p1 = dummyHead;
+        ListNode p2 = dummyHead;
+        
+        while(n > 0){
+            p2 = p2.next;
+            n--;
+        }
+        
+        while(p2.next != null){
+            p1 = p1.next;
+            p2 = p2.next;
+        }
+        
+        p1.next = p1.next.next;
+        return dummyHead.next;
+    }
+}
