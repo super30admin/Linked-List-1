@@ -1,5 +1,5 @@
 //Time Complexity: O(n) 
-//Space complexity: O(3n) creation of 3 linkedlist
+//Space complexity: O(1)
 
 public class reverseLinkedList {
     
