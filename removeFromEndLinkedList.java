@@ -1,5 +1,5 @@
 //Time Complexity: O(n) 
-//Space complexity: O(2n)
+//Space complexity: O(1)
 
 public class removeFromEndLinkedList extends reverseLinkedList{
     public ListNode removeNthFromEnd(ListNode head, int n) {
