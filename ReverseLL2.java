@@ -1,6 +1,6 @@
 // Time Complexity :O(n) since we are processing each link 
-// Space Complexity :O(1) since we can do it constant space(recursive)
-//  for (iterative) O(n) since it has to maintain a call stack until the end of list is reached
+// Space Complexity :O(1) since we can do it constant space(iterative)
+//  for (recursive) O(n) since it has to maintain a call stack until the end of list is reached
 // Did this code successfully run on Leetcode :
 // Any problem you faced while coding this :
 
