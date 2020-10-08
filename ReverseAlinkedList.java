@@ -1,4 +1,4 @@
-// Time Complexity : O(n), traverse from head till next element element from tail, null
+// Time Complexity : O(n), traverse from head till next element from tail, null
 // Space Complexity : O(1), need two pointers, prev and cur 
 // Did this code successfully run on Leetcode : yes
 // Any problem you faced while coding this : no, this was fine, drew on paper
