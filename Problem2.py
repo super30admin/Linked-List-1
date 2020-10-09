@@ -1,5 +1,5 @@
 # Time complexity: O(N)
-# Space Complexity: O(N)
+# Space Complexity: O(1)
 # Leetcode all test cases passed: Yes
 # Any difficulties: No
 
