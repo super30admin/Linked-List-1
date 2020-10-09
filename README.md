@@ -18,7 +18,7 @@ slow.next = slow.next.next to remove the desired node.
 
 ## Problem3 (https://leetcode.com/problems/linked-list-cycle-ii/)
 Approach:
-Here there are 2 steps for solving this question. First is find whether the linklist contains cycle or not. If it contains cycle then return point of start of cycle. To find the cycle, I have used famous hair and tortoise approach i.e. slow and fast pointer approach. Move slow by 1 and fast by 2 till fast.next !=null. if(slow == fast) then return either slow or fast to the function or return null if cycle is not found.
+1. Here there are 2 steps for solving this question. First is find whether the linklist contains cycle or not. If it contains cycle then return point of start of cycle. To find the cycle, I have used famous hair and tortoise approach i.e. slow and fast pointer approach. Move slow by 1 and fast by 2 till fast.next !=null. if(slow == fast) then return either slow or fast to the function or return null if cycle is not found.
 In second function, once we find the interaction, then the root of interaction is equally distanced from the head node i.e. start node and the inteeaction that I have found so I move those pointers by 1 step till head != interaction. Once they are equal, return head or interaction.
 
 
