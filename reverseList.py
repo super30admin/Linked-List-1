@@ -6,7 +6,9 @@ Accepted
 class Solution:
     def reverseList(self, head: ListNode) -> ListNode:
         #Iterative approach
+        #base case
         if head is None: return None
+        
         previous = None
         curr = head
         nextNode = head.next
