@@ -1,0 +1,39 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+
+//edge case: if length = 5, remove 5th node from end, to remove head, we need dummy node
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        
+        ListNode dummy = new ListNode(-1); // we are taking dummy node bcoz oof edge case
+        dummy.next = head;
+        
+        ListNode ptr = dummy;
+        int length = 0;
+        
+        while(ptr != null){
+            length++;
+            ptr = ptr.next;
+        }
+        
+         ptr = dummy;
+        length = length-n; // due to dummy, length is one more
+     //   System.out.print(step);
+        
+        while(length > 1){ // we are taking n+1 steps
+            ptr = ptr.next;
+            length--;
+        }
+        ptr.next = ptr.next.next;
+        
+        return dummy.next;
+    }
+}
