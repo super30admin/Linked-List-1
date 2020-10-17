@@ -1,0 +1,54 @@
+/**
+time O(n)
+space O(1)
+leetcode yes
+problem faced difficulty in handling edge cases
+
+we maintain 2 pointers at a distance of n from each other. when temp pointer reaches end , our curr pointer is just behind 
+the node to be deleted. Hence we delete the required node.
+
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+            
+        if(head.next== null || head == null)
+            return null;
+        
+        if(head.next.next==null && n==2)
+            return head.next;
+         
+        if(head.next.next==null && n==1)
+        {
+            head.next=null;
+            return head;
+        }
+           
+        
+        ListNode curr = head;
+        ListNode temp = head;
+        
+        for (int i = 0; i <= n; i++) {
+            if (temp== null)
+                return head.next;
+            temp= temp.next;   
+        }
+        
+        while(temp!=null)
+        {
+            temp=temp.next;
+            curr = curr.next;
+        }
+        
+        curr.next = curr.next.next;
+        
+        return head;
+    }
+    
+   
+}
