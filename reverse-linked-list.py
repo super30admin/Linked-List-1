@@ -27,3 +27,17 @@ class Solution(object):
             prev = current
             current = next
         return prev
+    
+# Recursive Approach
+class Solution(object):
+    def reverseList(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        if not head or not head.next:
+            return head
+        rev = self.reverseList(head.next)
+        head.next.next = head
+        head.next = None
+        return rev
