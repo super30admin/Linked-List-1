@@ -1,0 +1,20 @@
+# Time Complexity: O(n) where n is the number of nodes in the LinkedList
+# Space Complexity: O(n) where n is the number of nodes in the LinkedList (reversive call stack)
+# Did this code successfully run on LeetCode: Yes
+
+# Three line Explanation:
+# 1. Store all nodes in the stack (until the last second)
+# 2. Point the next of next back to current (reverse two nodes)
+# 3. Keep track of the last node and return that (reverse node)
+
+class Solution:
+    def reverseList(self, head: ListNode) -> ListNode:
+        return self.helper(head)
+        
+    def helper(self, head):
+        if head is None or head.next is None:
+            return head
+        reverse = self.helper(head.next)
+        head.next.next = head
+        head.next = None
+        return reverse
