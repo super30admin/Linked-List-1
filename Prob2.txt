@@ -1,0 +1,24 @@
+# Time Complexity: O(n) - n is the number of nodes in the Linked List
+# Space Complexity: O(1) 
+# Did this code successfully run on LeetCode: Yes
+
+# Three line Explanation:
+# 1. Create a dummy node (useful when head is required to be removed)
+# 2. Move fast pointer n steps ahead of slow pointer
+# 3. Move the sliding window, stop when it reaches the end of the LL. (N+1)th node from behind should point to (N-1)th node, thereby deleting Nth node.
+
+class Solution:
+    def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
+        dummy_node = ListNode(-1)
+        dummy_node.next = head
+        slow = dummy_node
+        fast = dummy_node
+        count = 0
+        while count < n:
+            fast = fast.next
+            count += 1
+        while fast.next is not None:
+            fast = fast.next
+            slow = slow.next
+        slow.next = slow.next.next
+        return dummy_node.next

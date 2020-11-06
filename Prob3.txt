@@ -1,0 +1,27 @@
+# Time Complexity: O(n) where n is the number of nodes in the LinkedList
+# Space Complexity: O(1) 
+# Did this code successfully run on LeetCode: Yes
+
+# Three line Explanation:
+# 1. Slow moves by 1, Fast moves by 2
+# 2. If slow == fast at any point, evidence of circle present
+# 3. From start, move a pointer by 1 and move fast by 1. Where they meet, return node.
+
+class Solution:
+    def detectCycle(self, head: ListNode) -> ListNode:
+        slow = head
+        fast = head
+        flag = False
+        while fast is not None and fast.next is not None:
+            slow = slow.next
+            fast = fast.next.next
+            if slow == fast:
+                flag = True
+                break
+        if not flag:
+            return None
+        slow = head
+        while slow != fast:
+            slow = slow.next
+            fast = fast.next
+        return slow
