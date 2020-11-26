@@ -10,7 +10,7 @@ public class Solution {
         fast = fast.next.next;
         slow = slow.next;
         if (fast == slow){
-        ListNode slow2 = head;
+        //ListNode slow2 = head;
         slow = head;
         while (slow !=fast) {
             slow = slow.next;
