@@ -51,3 +51,6 @@ public class ReverseLinkedList206 {
 		}
 	}
 }
+
+// Time complexity O (n)
+// Space Complexity O (n)
