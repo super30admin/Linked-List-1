@@ -47,3 +47,5 @@ public class RemoveNthNode19 {
 	}
 
 }
+// Time Complexity o (n)
+// Space Complexity O (n)
