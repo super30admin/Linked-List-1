@@ -1,0 +1,39 @@
+// Time Complexity : O(N)
+// Space Complexity : O(1)
+
+// Your code here along with comments explaining your approach: Idea is to use two pointers with concept of fast!=null && fast.next != null
+//If cycle found-> break and find intersection point else return null.
+
+SOLUTION:
+
+public class Solution {
+    public ListNode detectCycle(ListNode head) {
+        if(head==null || head.next==null){
+            return null;
+        }
+        
+        ListNode slow = head;
+        ListNode fast = head;
+        
+        while(fast!=null && fast.next!=null){
+            fast = fast.next.next;
+            slow = slow.next;
+            
+            if(slow==fast){
+                break;      // Cycle FOUND
+            }
+        }
+    
+        // No Cycle found
+          if(slow!=fast){
+                return null;
+            }
+        
+        slow = head;
+        while(slow!=fast){
+            slow = slow.next;
+            fast = fast.next;
+        }
+        return slow;
+    }
+}
