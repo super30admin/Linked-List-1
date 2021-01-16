@@ -15,6 +15,8 @@
 
 */
 
+import java.util.*;
+
 class Solution49 {
 
     class ListNode{
@@ -43,12 +45,51 @@ class Solution49 {
             curr = next;     
         }*/
 
-        //Recursive
-        helper(head);
-        
-        return prev;
+        //Recursive return ListNode
+        //return reversedList(head);
+
+        //Iterative Code of above recursion
+        return iterativeHelper(head); 
+
+        //Recursive-void
+        //helper(head);
+
+        //if void recursive function is used
+        //return prev;
     }
-   
+
+    //Iterative version of below code
+    private ListNode iterativeHelper(ListNode head){
+        
+        Stack<ListNode> stack = new Stack<>();
+        
+        while(head!=null && head.next!=null){
+            stack.push(head);
+            head = head.next;
+        }
+        ListNode reversed = head;
+        while(!stack.isEmpty()){
+            ListNode node = stack.pop();//node can be replace by head also
+            node.next.next = node;
+            node.next      = null;
+        }
+        
+        return reversed;
+    }
+
+    //Recursive returning last node as head node
+    private ListNode reversedList(ListNode head){
+        
+        if(head==null || head.next==null) return head;
+        
+        ListNode reversed = reversedList(head.next);
+        //stack.pop happens here
+        head.next.next    = head;//4.5.null = 4
+        head.next        = null;//4.next = null
+        
+        return reversed;
+    }
+
     //Recursive
     private void helper(ListNode curr){
         
@@ -60,5 +101,8 @@ class Solution49 {
         
         helper(next);
     }
+
+
+
     
 }

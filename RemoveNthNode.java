@@ -37,18 +37,20 @@ class Solution50 {
         ListNode slow = start;
         ListNode fast = start;
         
-        int i=0;
-        while(i<n){
+        int count=0;
+        //moving fast pointer n nodes ahead, here <=n because we are starting from -1 which is the start/dummy node
+        while(count<=n){
             fast = fast.next;
-            i++;
+            count++;
         }
         
-        while(fast!=null && fast.next!=null){
+        while(fast!=null){
             slow = slow.next;
             fast = fast.next;
         }
         
         slow.next = slow.next.next;
+        
         
         return start.next;
         
