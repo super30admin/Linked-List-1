@@ -1,0 +1,29 @@
+/**
+* Time complexity = O(n) as we are considering traveral of slow pointer because fast always skip one node and its little complicated to consider for time complexity
+* Space complexity = O(1) As we are not creating any extra space. Only using pointers to traverse
+*/
+
+public class LinkedLIstCycle {
+    public ListNode detectCycle(ListNode head) {
+        ListNode slow=head;
+        ListNode fast=head;
+        boolean status=false;
+        
+        while(fast!=null && fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+            if(slow==fast){
+                status=true;
+                break;
+            }
+        }
+        if(status==false) return null;
+        fast=head;
+        while(slow!=fast){
+            slow=slow.next;
+            fast=fast.next;
+        }
+        return slow;
+        
+    }
+}
