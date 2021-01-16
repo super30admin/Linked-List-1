@@ -1,0 +1,25 @@
+/**
+*TimeComplexity= O(n) consider traversal of slow pointer
+*Space complexity=O(1) as we are not creating any new space
+*/
+
+class LinkedListRemoveNThElement {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode dummy=new ListNode(-1); //created dummy node
+        dummy.next=head;
+        ListNode slow=dummy;
+        ListNode fast=dummy;
+        int count=0;
+        while(count <=n){
+            fast=fast.next;
+            count++;
+        }
+        while(fast!=null){
+            slow=slow.next;
+            fast=fast.next;
+            
+        }
+        slow.next=slow.next.next;
+        return dummy.next;
+    }
+}
