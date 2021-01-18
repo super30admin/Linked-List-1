@@ -97,4 +97,15 @@ public class ReverseLinkedList {
       }
       System.out.print("\n");
     }
+
+    private static void printList(ListNode node){
+      ListNode temp = node;
+      while(temp != null){
+        System.out.print(temp.val + "->");
+        temp = temp.next;
+      }
+
+      System.out.print("\n");
+    }
+
   }
