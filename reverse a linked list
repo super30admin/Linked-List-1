@@ -1,0 +1,77 @@
+-------------------------------ITERATIVE SOLUTION--------------------------------------------------------------------
+// Time Complexity : O(n)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes 
+// Any problem you faced while coding this : No
+
+
+// Your code here along with comments explaining your approach
+
+
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        if(head == null || head.next == null) return head; 
+        //have a slow, current, and fast pointer
+        ListNode slow = null;
+        ListNode current = head;
+        ListNode fast = current.next;
+        
+        //have a while loop that iterates the linked list until fast equals null
+        while(fast != null){
+            current.next = slow;
+            slow = current;
+            current = fast;
+            fast = current.next;
+        }
+        current.next = slow;
+        return current;
+    }
+}
+
+
+-------------------------------RECURSIVE SOLUTION--------------------------------------------------------------------
+
+//Time Complexity : O(n)
+//Space Complexity : O(h)
+//Did this code successfully run on Leetcode : yes
+//Any problem you faced while coding this : no
+
+
+//Your code here along with comments explaining your approach
+
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        if(head == null || head.next == null) return head;
+        //call recursion on the begining of the list to start poppulating the recursive stack
+        ListNode reversed = reverseList(head.next);
+        //now after the base case it will return the head and now a pop occurs to the one before current head 
+        //set that to be head now 
+        head.next.next = head;
+        //change the head's next to null because we are breaking the --> and making it go <--
+        head.next = null;
+        //now return the reversed which will be pointing at the new head reversed
+        return reversed;
+    }
+}

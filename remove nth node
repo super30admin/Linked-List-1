@@ -1,0 +1,43 @@
+// Time Complexity : O(n)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : yes 	
+// Any problem you faced while coding this : no
+
+
+// Your code here along with comments explaining your approach
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        //create a dummy node to handle the case of a linked list of size 2
+        ListNode dummy = new ListNode(-1);
+        //make the dummy node point to the head
+        dummy.next = head;
+        //now create to pointers slow and fast
+        ListNode slow = dummy;
+        ListNode fast = dummy;
+        //now create a count which will check the gap between the pointers correspoinding to the nth node we want removed
+        int count = 0;
+        //start while loop that goes until fast doesn't equal null
+        while(count <= n){
+            //check if count is less than or equal to the n because that will give us the gap.  if it less than or equal move fast when it isn't move fsat and slow together
+            fast = fast.next;
+            count++;
+        }
+        while(fast != null){
+            slow = slow.next;
+            fast = fast.next;
+        }
+        slow.next = slow.next.next;
+        return dummy.next;
+    }
+}
