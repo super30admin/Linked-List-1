@@ -1,5 +1,17 @@
 # Created by Aashish Adhikari at 7:40 PM 1/18/2021
 
+
+'''
+Time Complexity:
+O(l) + O(l) ~ O(l)
+
+Space Complexity:
+O(l) + O(l) ~ O(l) since we are creating a new node at each iteration.
+'''
+
+
+
+
 # Definition for singly-linked list.
 # class ListNode(object):
 #     def __init__(self, val=0, next=None):
@@ -14,6 +26,7 @@ class Solution(object):
         """
 
         ########################################################
+        # Reverse the linked list.
         prev = None
 
         while head is not None:
@@ -49,4 +62,3 @@ class Solution(object):
 
 
 
-        
