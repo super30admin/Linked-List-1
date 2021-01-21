@@ -1,5 +1,5 @@
 
-// Time Complexity : O(1) because we have only one element to delete
+// Time Complexity : O(n) where n is no of elements in a linked list
 // Space Complexity : O(1) we are not using extra space
 // Did this code successfully run on Leetcode :yes
 // Any problem you faced while coding this : no
