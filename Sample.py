@@ -71,3 +71,60 @@ class Solution:
         
         return dummyNode.next
         
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    
+    """
+    Description: Given a linked list, return the node where the cycle begins. If there is no cycle, return null
+    
+    Time Complexicity = O(n)
+    Space Complexicity = O(1)
+    
+    Approach (without using a hashset)
+    1. start 2 pointers (slow, 1x and fast, 2x) to find cross of both (1 pass)
+    2. if they never cross return None, if they do start fast back from head and move 1x for both
+    3. when they meet again, it will be a node of the cycle (Floyd's algorithm)
+    """
+    def detectCycle(self, head: ListNode) -> ListNode:
+        
+        if head == None: return
+        
+        flag = False
+        slow = head; fast = head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+            if slow == fast:
+                flag = True
+                break # prevent infinite loop 
+            
+        if not flag: return None
+        
+        fast = head
+        while slow != fast:
+            fast = fast.next
+            slow = slow.next
+            
+        return slow
+    
+    
+    """ Alternative solution with 
+    # Time Complexicity  = O(n)
+    # Space Complexicity = O(n)
+    def detectCycle(self, head: ListNode) -> ListNode:
+    
+        if head == None: return 
+        node_set = []
+        
+        curr_node = head
+        while curr_node != None or curr_node in node_set:
+            node_set.append(curr_node)
+            curr_node = curr_node.next
+            if curr_node in node_set:
+                return curr_node
+    """        
