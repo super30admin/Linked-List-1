@@ -69,3 +69,23 @@ class Solution
         return current;
     }
 }
+
+
+//================
+
+//TC - O(n)
+//SC - O(1)
+
+public class ReverseLinkedListRecursive {
+
+     public ListNode reverseList(ListNode head) {
+
+        if(head == null || head.next == null) return head;
+
+        ListNode revList = reverseList(head.next);
+
+        head.next.next = head;
+        head.next = null;
+
+        return revList;
+    }
