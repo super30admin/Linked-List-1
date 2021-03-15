@@ -8,8 +8,8 @@
 -------------------------------------------------------------------- Approach 1 --------------------------------------------------------------------
    class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        ListNode fast = newNode;
-        ListNode slow = newNode;
+        ListNode fast = head;
+        ListNode slow = head;
         
         //Go until n-1th node from start
         for(int i=0;i<n;i++){
@@ -30,7 +30,7 @@
         
       //before our node position make before node point to next of our intended node.
         slow.next=slow.next.next;
-        return newNode.next;
+        return head;
     }
 }
 -------------------------------------------------------------------- Approach 2 ---------------------------------------------------------------------------
