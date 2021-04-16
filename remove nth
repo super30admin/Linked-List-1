@@ -1,0 +1,47 @@
+// Time Complexity : O(n)
+// Space Complexity : O(1) 
+// Did this code successfully run on Leetcode : yes
+// Any problem you faced while coding this :
+edge case [1] 1
+
+// Your code here along with comments explaining your approach
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        
+        if(head == null)
+            return head;
+        ListNode first = new ListNode(-1);
+        first.next = head;
+        
+        ListNode fast = first, slow = first;
+        int count =0;
+        while(fast != null)
+        {
+            //System.out.println("count = "+count+" slow.val = "+slow.val+" fast.val = "+fast.val);
+            if(count <= n)
+            {
+                fast = fast.next;
+                count ++;
+            }
+            else
+            {
+                slow = slow.next;
+                fast = fast.next;
+            }
+        }
+      
+        slow.next = slow.next.next;
+        
+        return first.next;
+    }
+}
