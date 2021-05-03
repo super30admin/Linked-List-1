@@ -1,0 +1,38 @@
+//Time Complexity : O(n)
+//Space Complexity : O(1)
+// Did this code successfully run on Leetcode : yes
+// Your code here along with comments explaining your approach
+public class Solution {
+    public ListNode detectCycle(ListNode head) {
+        if(head == null || head.next == null){
+            return null;
+        }
+        //use two pointers
+        ListNode slow = head, fast=head;
+        boolean hascycle = false;
+        while(fast!=null&&fast.next!=null){
+            //move the fast pointer twice the times of slow pointer
+            slow = slow.next;
+            fast = fast.next.next;
+            //if there exists a cycle stop and reset either of the two pointers
+            if(slow == fast){
+                hascycle = true;
+                break;
+            }
+        }
+        if(hascycle){
+            //reset the slow or fast pointer to head
+            slow = head;
+            //now increment both at the same speed(by 1) until they meet
+            while(slow!=fast){
+                slow = slow.next;
+                fast = fast.next;
+            }
+        }
+        else{
+            //if no cycle
+            return null;
+        }
+        return slow;
+    }
+}
