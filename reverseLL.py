@@ -5,6 +5,7 @@
 class Solution:
     def reverseList(self, head: ListNode) -> ListNode:
 
+        # either when empty LL or single element(head)-- return head
         if head == None or head.next == None:
             return head
 
@@ -18,6 +19,7 @@ class Solution:
             current = fast
             fast = fast.next
 
+        # at the end here, fast points to null and current is last element
         current.next = prev
         return current
 

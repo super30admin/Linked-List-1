@@ -10,7 +10,7 @@
 class Solution:
     def detectCycle(self, head: ListNode) -> ListNode:
 
-        #base checks
+        # base checks
         if head == None:
             return None
 
