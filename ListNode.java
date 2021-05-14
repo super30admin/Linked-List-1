@@ -20,7 +20,7 @@ public class ListNode {
     }
 
     ListNode getSampleNode() {
-        // 3,2,0,-4
+        // 3,2,0,-4,5,2
         ListNode root = new ListNode(3);
         ListNode node2 = new ListNode(2);
         ListNode node0 = new ListNode(0);
@@ -32,6 +32,21 @@ public class ListNode {
         node0.next = nodeNegative4;
         nodeNegative4.next = node5;
         node5.next = node2;
+        return root;
+    }
+
+    ListNode getSampleNodeThree() {
+        // 3,2,0,-4,5
+        ListNode root = new ListNode(3);
+        ListNode node2 = new ListNode(2);
+        ListNode node0 = new ListNode(0);
+        ListNode nodeNegative4 = new ListNode(-4);
+        ListNode node5 = new ListNode(5);
+
+        root.next = node2;
+        node2.next = node0;
+        node0.next = nodeNegative4;
+        nodeNegative4.next = node5;
         return root;
     }
 
