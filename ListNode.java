@@ -50,4 +50,13 @@ public class ListNode {
         return root;
     }
 
+
+    ListNode getSampleNodeOne() {
+        // 1,2
+        ListNode root = new ListNode(3);
+        ListNode node2 = new ListNode(2);
+        root.next = node2;
+        return root;
+    }
+
 }
