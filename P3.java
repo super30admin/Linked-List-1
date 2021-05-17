@@ -15,6 +15,7 @@
 
 public class Solution {
     public ListNode detectCycle(ListNode head) {
+        
         if(head==null ) return null;
         if(head.next==null|| head.next.next==null) return null;
         

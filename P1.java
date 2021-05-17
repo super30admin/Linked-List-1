@@ -19,5 +19,6 @@ class Solution {
             head.next.next = head;
             head.next = null;
             return new_head;
+            
     }
 }

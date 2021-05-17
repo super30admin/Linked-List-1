@@ -23,6 +23,7 @@ class Solution {
         ListNode walker = dummy;
         ListNode runner = dummy;
         int count=0;
+        
         while(count!=n)//to keep a gap of n, between walker and runner, move runner
         {
             runner=runner.next;
