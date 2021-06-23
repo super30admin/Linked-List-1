@@ -1,0 +1,43 @@
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution(object):
+    def detectCycle(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        :SC : O(1)
+        :TC: O(n)
+        """
+        # key idea: first check if there is cycle, if yes compute position when 2 slow  pointers meets
+        slow=head
+        fast=head
+        is_cycle=False
+        slow_2 = head
+        
+        while fast.next is not None and fast.next.next is not None:
+            slow=slow.next
+            fast=fast.next.next
+            if slow==fast:    # there is a cycle
+                is_cycle=True
+                break
+        
+        if is_cycle:
+            while slow_2!=slow:
+                slow_2=slow_2.next
+                slow=slow.next
+        # or return slow
+        return slow_2
+
+            
+            
+            
+            
+            
+            
+        
+            
+        
