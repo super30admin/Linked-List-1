@@ -1,40 +1,22 @@
 """
+Recursion
 Time Complexity : O(n)
-Space Complexity : O(1)
+Space Complexity : O(n)
     
 """
 
 # Definition for singly-linked list.
 # class ListNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
-
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
 class Solution:
-    def detectCycle(self, head: ListNode) -> ListNode:
-        if not head:
-            return None 
+    def reverseList(self, head: ListNode) -> ListNode:
+        if not head or not head.next:
+            return head 
         
-        slow = fast = head 
-        flag = False 
+        last = self.reverseList(head.next)
         
-        while fast != None and fast.next != None:
-            slow = slow.next 
-            fast = fast.next.next 
-            if slow == fast:
-                flag = True 
-                break 
-        
-        if not flag:
-            return None 
-        
-        slow = head 
-        while fast != slow:
-            slow = slow.next 
-            fast = fast.next 
-        
-        return fast
-            
-            
-        
-        
+        head.next.next = head 
+        head.next = None
+        return last 
