@@ -1,5 +1,5 @@
 // Time Complexity : O(N)
-// Space Complexity : O(1)
+// Space Complexity : O(N)
 // Did this code successfully run on Leetcode : Yes
 // Any problem you faced while coding this : no
 
@@ -40,6 +40,13 @@ class Solution {
 }
 
 1-Pass Solution-----------------------------------------------------------------------------
+// Time Complexity : O(N)
+// Space Complexity : O(N)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : no
+
+
+// Your code here along with comments explaining your approach
 /*
 The Fast pointer advances the list by n+1n+1 steps from the beginning, while the slow pointer starts from the beginning of the list.
 Now, both pointers are exactly separated by nn nodes apart.
@@ -65,8 +72,9 @@ class Solution {
         dummy.next = head;
         ListNode fast = dummy;
         ListNode slow = dummy;
-        int count = 1;
-        while(count<=n+1){
+        int count = 0;
+        //creating a gap of n nodes
+        while(count<=n){
             count++;
             fast = fast.next;
         }
@@ -76,7 +84,7 @@ class Solution {
             fast = fast.next;
             slow = slow.next;
         }
-        slow.next = slow.next.next;
+        slow.next = slow.next.next; // stooping at previous node
         return dummy.next;
     }
 }
