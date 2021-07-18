@@ -5,6 +5,7 @@
 
 
 // Your code here along with comments explaining your approach
+
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -16,18 +17,23 @@
  * }
  */
 
- //iterative approach
+//iterative appraoch
 class Solution {
     public ListNode reverseList(ListNode head) {
+        if(head == null || head.next == null)
+            return head;
         
-    ListNode prev = null;
-    ListNode curr = head;
-    while (curr != null) {
-        ListNode nextTemp = curr.next;
+        ListNode prev = null, curr = head, fast = head.next;
+        
+        while(fast != null){
+            curr.next = prev;
+            prev = curr;
+            curr = fast;
+            fast = fast.next;
+        }
+        
         curr.next = prev;
-        prev = curr;
-        curr = nextTemp;
-    }
-    return prev;
+        
+        return curr;
     }
 }
