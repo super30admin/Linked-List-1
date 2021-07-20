@@ -20,3 +20,17 @@ class Solution:
 
 # Time Complexity: O(n)
 # Space Complexity: O(1)
+
+
+# Using recursion
+class Solution:
+    def reverseList(self, head: ListNode) -> ListNode:
+        if head == None or head.next == None:
+            return head
+        reversedNode = self.reverseList(head.next)
+        head.next.next = head
+        head.next = None
+        return reversedNode
+
+# Time Complexity: O(n)
+# Space Complexity: O(n) because of recursive space
