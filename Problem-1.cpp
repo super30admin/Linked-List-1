@@ -29,3 +29,30 @@ public:
         return head1;
     }
 };
+
+
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ Time Complexity = O(N)
+ Space Complexity = O(N)
+ Where N is the number of nodes in the linked list.
+ */
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        if(head==NULL || head->next==NULL)
+            return head;
+        ListNode* node = reverseList(head->next);
+        head->next->next = head;
+        head->next = NULL;
+        return node;
+    }
+};
