@@ -13,7 +13,7 @@
   */
 
 
-class Solution {
+class ReverseLinkedList {
 
      class ListNode {
         int val;
