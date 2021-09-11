@@ -20,8 +20,8 @@ class Solution {
         ListNode temp = new ListNode(-1);
         temp.next = head;
         int count = 1;
-        ListNode slow = head;
-        ListNode fast = head;
+        ListNode slow = temp;
+        ListNode fast = temp;
         // move till the count
         while( count <= n ){
             fast = fast.next;
