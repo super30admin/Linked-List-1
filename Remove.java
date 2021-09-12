@@ -1,3 +1,16 @@
+/**
+ * Reverse
+ */
+
+// Time Complexity : O(n)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : yes
+
+// Your code here along with comments explaining your approach
+/**
+ * # 2 pointer approch
+ */
 public class Remove {
     public ListNode removeNthFromEnd(ListNode head, int n) {
 
