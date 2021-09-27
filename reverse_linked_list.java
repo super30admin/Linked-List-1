@@ -25,3 +25,4 @@ class Solution {
 }
 
 //TC O(N)
+//SC O(N)
