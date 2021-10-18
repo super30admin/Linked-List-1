@@ -1,0 +1,23 @@
+// Time Complexity : O(n)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : yes
+// Any problem you faced while coding this : no
+
+class Solution(object):
+    def reverseList(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        if head==None:
+            return None
+        prev=None
+        curr=head
+        
+        while(curr is not None):
+            nextptr=curr.next
+            curr.next=prev
+            # nextptr.next=curr
+            prev=curr
+            curr=nextptr
+        return prev
