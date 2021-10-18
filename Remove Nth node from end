@@ -1,0 +1,27 @@
+// Time Complexity : O(n)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : yes
+// Any problem you faced while coding this : no
+
+class Solution(object):
+    def removeNthFromEnd(self, head, n):
+        """
+        :type head: ListNode
+        :type n: int
+        :rtype: ListNode
+        """
+        slow=head
+        fast=head
+        i=0
+        while(i< n):
+            fast=fast.next
+            i=i+1
+            
+        if (fast==None):
+            return slow.next
+        
+        while(fast.next != None):
+            slow=slow.next
+            fast=fast.next
+        slow.next=slow.next.next
+        return head
