@@ -13,42 +13,36 @@ public class Solution3 {
     ListNode(int val) { this.val = val; }
     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
 }
-    public class Solution {
-        public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-            if(headA==null ||headB==null)
-                return null;
-            ListNode curr=headA;
-            int lenA=0;
-            int lenB=0;
-            // length of list A
-            while(curr!=null){
-                lenA++;
-                curr=curr.next;
+public class Solution {
+    public ListNode detectCycle(ListNode head) {
+       if(head==null)
+           return null;
+        
+        ListNode slow=head;
+        ListNode fast=head;
+        boolean hasCycle= false;
+        // find a point where they cross each other.
+        while(fast!=null && fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+            // if slow and fast cross once it will have a cycle
+            if(slow==fast){
+                hasCycle=true;
+                break;
             }
-            // reusing same node to calculate the length
-            curr=headB;
-            // length of list B
-            while(curr!=null){
-                lenB++;
-                curr=curr.next;
-            }
-            while(lenA>lenB){
-                headA=headA.next;
-                lenA--;
-            }
-            // move the pointer to lenA-lenB so that they are at same distance from the end.
-            while(lenB>lenA){
-                headB=headB.next;
-                lenB--;
-            }
-
-            //when both heads are at same point , move them to find a intersection point
-            while(headA!=headB){
-                headA=headA.next;
-                headB=headB.next;
-            }
-            // Can return either of the head pointers
-            return headB;
         }
+        // no cycle is there no further processing required
+        if(hasCycle==false)
+            return null;
+        // reset slow to head and move both pointers
+        // this gives us a point when the cycle start
+        slow=head;
+        while(slow!=fast){
+            slow=slow.next;
+            fast=fast.next;
+        }
+        // can return either slow or fast
+        return fast;
     }
+}
 }
