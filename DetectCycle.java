@@ -1,3 +1,6 @@
+//TC: O(n)
+//SC: O(1)
+
 public class DetectCycle {
     public ListNode detectCycle(ListNode head) {
         if(head == null) {

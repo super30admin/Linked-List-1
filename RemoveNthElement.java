@@ -1,3 +1,5 @@
+//TC: O(n)
+//SC: O(1)
 public class RemoveNthElement {
     public ListNode removeNthFromEnd(ListNode head, int n) {
         ListNode dummyNode = new ListNode(-1);
