@@ -1,0 +1,26 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+// Space Complexity --> O(n)
+// Time Complexity -->O(n)
+class Solution {
+public:
+    ListNode *detectCycle(ListNode *head) {
+        set<ListNode *> s;
+        ListNode * root = head;
+        while(root != NULL){
+            if(s.find(root) == s.end()){
+                s.insert(root);
+            }else{
+                return root;
+            }
+            root = root->next;
+        }
+        return NULL;
+    }
+};
