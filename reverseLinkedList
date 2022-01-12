@@ -1,0 +1,17 @@
+//tc:O(n)
+//sc: O(n)
+//passed all testcases on leetcode: yes
+class Solution {
+    public ListNode reverseList(ListNode head) {
+    ListNode prev = null;
+    ListNode curr = head;
+    //Pointing the curr.next to prev to reverse the order
+    while (curr != null) {
+        ListNode nextnode = curr.next;
+        curr.next = prev;
+        prev = curr;
+        curr = nextnode;
+        }
+    return prev;
+    }
+}
