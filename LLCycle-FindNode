@@ -1,0 +1,29 @@
+//tc: O(n) 
+//sc: O(1)
+//passed all testcased on leetcode: yes
+// Idea is that if slow & fast start at the same place, if slow is +1, fast is +2, if they meet at some point, there is cycle, if it reaches null, there is no cycle
+//if there is cycle, from the point they meet, when one of them is moved to head, is +1 for both pointers, they will meet again at the cycle node
+public class Solution {
+    public ListNode detectCycle(ListNode head) {
+        if (head == null || head.next == null) return null;
+        ListNode slow = head;
+        ListNode fast = head;
+        boolean flag = false;
+        while (fast != null && fast.next!=null)  { //because we're doing fast.next.next, fast.next has to be checked for null pointer also
+            slow = slow.next;
+            fast = fast.next.next;
+              if (fast == slow) {
+                flag = true;
+                break;
+            }
+             
+        }
+        if (!flag) return null; //if there is no cycle, it can be stopped here to return null
+        fast = head;
+        while (fast!=slow) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+        return fast;
+    }
+}
