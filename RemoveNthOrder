@@ -1,0 +1,22 @@
+//tc: O(n)
+//sc:O(1)
+//passed on leetcode: yes
+//idea is to use sliding window
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode dummy = new ListNode(-1); //using dummy here because if there was only one element and head itself was removed, we need dummy
+        dummy.next = head;
+        ListNode slow = dummy;
+        ListNode fast = dummy;
+        while (n>0){ //moving the fast until the k, so it can be used as sliding window
+            fast=fast.next;
+            n--;
+        }
+        while (fast!=null && fast.next!=null) {
+            slow=slow.next;
+            fast = fast.next;
+        }
+        slow.next=slow.next.next; //when k is at the end, slow's next element is the node to delete
+        return dummy.next;
+    }
+}
