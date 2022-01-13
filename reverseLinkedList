@@ -1,5 +1,5 @@
 //tc:O(n)
-//sc: O(n)
+//sc: O(1)
 //passed all testcases on leetcode: yes
 class Solution {
     public ListNode reverseList(ListNode head) {
@@ -14,4 +14,22 @@ class Solution {
         }
     return prev;
     }
+} */
+
+//Using Recursion
+//tc:O(n)
+//sc: O(n)
+//passed all testcases on leetcode: yes
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        if (head == null || head.next ==null) return head;
+        ListNode reversed = null;
+        reversed = reverseList(head.next); //reversed will be 5, 5 will not go in to the stack since it's baby is null, and we are terminating on null, so it won't be actually at null
+        //st.pop -- gives head -- 4
+        head.next.next = head;
+        head.next = null;
+        return reversed;
+    
+    }
 }
+
