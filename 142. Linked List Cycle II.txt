@@ -1,0 +1,51 @@
+// Time Complexity : O(n)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : yes
+// Any problem you faced while coding this : no
+
+
+// Your code here along with comments explaining your approach
+//draw the track diagram of distance travelled by pointers till they meet. the distance from head to cycle starting and
+//distance from meeting point and cycle starting is same.
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode detectCycle(ListNode head) {
+        
+        if(head==null) return null;
+        ListNode slow = head;
+        ListNode fast = head;
+        int flag=0;
+       
+        while(fast!=null && fast.next!=null ){
+             fast=fast.next.next;
+            slow=slow.next;
+            if(slow==fast){
+                flag=1;
+                break;
+            }
+           
+        }
+         ListNode temp=head;
+        if(flag==0) {
+            return null;
+             }else {
+            while(slow!=temp){
+                if(slow==temp) return temp;
+                slow=slow.next;
+                temp=temp.next;
+            }
+             return temp;
+        }
+      
+    }
+}
