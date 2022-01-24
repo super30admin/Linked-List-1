@@ -1,3 +1,28 @@
+//TC: O(N);
+//SC:O(1);
+
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        
+        if(head==null || head.next==null) return head;
+        
+        ListNode prev=null;
+        ListNode curr=head;
+        ListNode fast=curr.next;
+        
+        while(fast!=null){
+            curr.next=prev;
+            prev=curr;
+            curr=fast;
+            System.out.println(curr);
+            fast=fast.next;
+        }
+        curr.next=prev;
+        return curr;
+    }    
+}
+
+
 //When doing so says, there is a cycle formed in the linkedList;
 //Kindly remove the cycle
 
