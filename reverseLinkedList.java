@@ -24,7 +24,8 @@ class Solution {
 }
 
 //Revursive solution
-
+//Time Complexity: O(N)
+//Space Complexity: O(N)
 class Solution {
     public ListNode reverseList(ListNode head) {
         if(head == null || head.next == null) return head;
