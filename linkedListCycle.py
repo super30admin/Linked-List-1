@@ -1,3 +1,4 @@
+#O(n) time and O(1) solution
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
         if head is None:
