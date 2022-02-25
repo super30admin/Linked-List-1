@@ -4,7 +4,7 @@ class Solution {
       //time - o(n) where n is length of linked list
       //Ran on Leetcode successfully : Yes
       // Problem faced  : No
-// Iterative approach :
+// Iterative approach : 
   public ListNode reverseList(ListNode head) {
 
       ListNode prev = null;

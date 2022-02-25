@@ -5,6 +5,7 @@
 // Iterative approach : two fast and slow pointer, when fast move 2 step , slow move 1
 // when slow and fast meets , it has Cycle
 // now reset slow to 0 and fast to where slow and fast met, move them together 1 step each, now when both slow and fast meet, that is the point of cycle begin
+//You can check if slow and fast are equal after moving slow and fast atleast once
 
 public class Solution {
 
