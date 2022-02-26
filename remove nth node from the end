@@ -1,0 +1,35 @@
+//TC = O(n)
+//SC = O(1)
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        
+         if (head == null)
+        {
+            return null;
+        }
+        
+        // Added a dummy node to handle the single node scenario.
+        ListNode dummy = new ListNode();
+        dummy.next = head;
+        ListNode slow = dummy;
+        ListNode fast = dummy;
+        
+        while (n+1 > 0 && fast != null)
+        {
+            fast = fast.next;
+            n--;
+        }
+        
+        while (fast != null)
+        {
+            slow = slow.next;
+            fast = fast.next;
+        }
+        
+        slow.next = slow.next.next;
+        
+        return dummy.next;
+        
+        
+    }
+}
