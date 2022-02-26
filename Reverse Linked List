@@ -1,0 +1,19 @@
+//TC =O(n)
+//SC = O(1)
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        
+        ListNode prev = null;
+        ListNode curr = head;  //curr is as temp as we cannot move head
+        
+        while(curr != null){
+            
+            ListNode next = curr.next;
+            curr.next = prev;   //making next of current node to prev to reverse
+            
+            prev = curr;   //now make previous node to current node
+            curr = next;   
+        }
+        return prev;  //prev will be the new head
+    }
+}
