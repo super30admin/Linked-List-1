@@ -1,0 +1,25 @@
+// Time:O(n)
+// Space:O(1)
+// Issues: Initialization of pre node.
+
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        if(head == null) return null;
+
+        
+        ListNode pre = null;
+        ListNode cur = head;
+        ListNode nxt = head.next;
+        
+        while(nxt != null){
+            cur.next = pre;
+            
+            pre = cur;
+            cur = nxt;
+            nxt = nxt.next;
+        }
+        cur.next = pre;
+        head = cur;
+        return head;
+    }
+}
