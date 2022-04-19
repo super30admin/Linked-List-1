@@ -7,3 +7,9 @@
 
 ## Problem3 (https://leetcode.com/problems/linked-list-cycle-ii/)
 
+
+//problem1.java has O(n) time complexity and O(1) space complexity
+
+//problem2.java has O(n) time complexity and O(1) space complexity
+
+//problem3.java has O(n) time complexity and O(1) space complexity
