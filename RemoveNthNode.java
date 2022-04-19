@@ -12,7 +12,7 @@ public class RemoveNthNode {
         ListNode slow = dummy;
         ListNode fast = dummy;
 
-        while(count != n) {
+        while(count <= n) {
             count++;
             fast = fast.next;
         }
