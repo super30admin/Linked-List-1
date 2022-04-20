@@ -4,6 +4,7 @@ TC: O(m) where m = length of list
 SC: O(1)
 */
 class Solution {
+    // Approach 1: 2 traversals
     public ListNode removeNthFromEnd(ListNode head, int n) {
         int len = 0;
         ListNode cur = head;
@@ -28,5 +29,29 @@ class Solution {
         
         cur.next = cur.next.next;
         return head;
+    }
+
+    // Approach 2: single traversal
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        if (head == null)
+            return null;
+        
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        ListNode left = dummy, right = dummy;
+        int count = 0;
+        
+        while (count <= n) {
+            ++count;
+            right = right.next;
+        }
+        
+        while (right != null) {
+            left = left.next;
+            right = right.next;
+        }
+        left.next = left.next.next;
+        return dummy.next;
+        
     }
 }
