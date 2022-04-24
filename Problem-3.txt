@@ -1,0 +1,42 @@
+//https://leetcode.com/problems/linked-list-cycle-ii/
+// Time Complexity : O(n)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this :
+
+
+// Your code here along with comments explaining your approach
+
+
+//Slow and fast pointer and when it meets , it has cycle
+public class Solution {
+    public ListNode detectCycle(ListNode head) {
+        if(head == null) return null;
+        ListNode slow = head;
+        ListNode fast = head;
+        boolean hasCycle = false;
+        while(fast !=null && fast.next !=null)
+        {
+            fast = fast.next.next;
+            slow = slow.next;
+            
+            if(fast == slow)
+            {
+                hasCycle = true;
+                break;
+            }
+        }
+        if(hasCycle == false) return null;
+
+//reset slow and move slow and fast at 1x until they meet
+        slow = head;
+        
+        while(slow != fast)
+        {
+            slow = slow.next;
+            fast = fast.next;
+            
+        }
+        return slow;
+    }
+}
