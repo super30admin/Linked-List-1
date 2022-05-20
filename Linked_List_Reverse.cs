@@ -20,18 +20,30 @@ namespace Algorithms
 
         public ListNode ReverseList(ListNode head)
         {
+            if (head == null) return head;
             ListNode prev = null;
-            ListNode curr = head;
-
-            while (curr != null)
+            ListNode current = head;
+            ListNode fast = head.next;
+            while (fast != null)
             {
-                ListNode tempNext = curr.next;
-                curr.next = prev;
-                prev = curr;
-                curr = tempNext;
+                current.next = prev;
+                prev = current;
+                current = fast;
+                fast = fast.next;
             }
-            return prev;
+            current.next = prev;
+            return current;
 
+        }
+
+        public ListNode ReverseList_Recursive(ListNode head)
+        {
+            if (head == null || head.next == null) return head;
+
+            ListNode reversed = ReverseList_Recursive(head.next);
+            head.next.next = head;
+            head.next = null;
+            return reversed;
         }
     }
 }
