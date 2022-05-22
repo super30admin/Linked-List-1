@@ -1,8 +1,8 @@
-
-public class Solution {
+class Solution {
     // Floyds algorithm
     // Time complexity is O(n)
     // Space complexity is O(1)
+    // This solution is submiited on leetcode with no errors
     public class ListNode {
         int val;
         ListNode next;
