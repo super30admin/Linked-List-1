@@ -1,3 +1,7 @@
+//Time COmplexity: O(n)
+//Space COmlexity: O(1)
+
+
 public class ReverseLinkedList {
 
       public class ListNode {

@@ -1,3 +1,7 @@
+//Time Complexity: O(n)
+//Time Complexity: O(1)
+
+
 public class LinkedListCycle2 {
 
     class ListNode {

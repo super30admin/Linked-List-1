@@ -1,3 +1,8 @@
+//Time Complexity: O(n)
+//Space Complexity: O(1)
+
+
+
 public class RemovNodeFromNth {
     public class ListNode {
       int val;
