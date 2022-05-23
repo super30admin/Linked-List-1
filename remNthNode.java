@@ -96,3 +96,23 @@ class Solution {
         return head;
     }
 }
+
+// ---------------ONE PAss------------------------------
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode fast = head;
+        ListNode dummy = new ListNode(-1, head);
+        int count = n;
+        while (count > 0) {
+            fast = fast.next;
+            count--;
+        }
+        ListNode slow = dummy;
+        while (fast != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        slow.next = slow.next.next;
+        return dummy.next;
+    }
+}
