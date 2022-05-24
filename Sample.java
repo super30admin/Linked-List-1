@@ -5,24 +5,21 @@
 
 
 // Your code here along with comments explaining your approach
-//intiate cur to head and prev to null.
-//traverse through the list and move cur but attaching its next to its prev value.
-//Before that we should store the next cur value here in temp.
-//then the temp becomes cur again.
-
+traverse through evry node in inorder traversal and return false if the previous
+// value is greater than or equal to the root value
 
 class Solution {
-    public ListNode reverseList(ListNode head) {
-      
-        if(head == null || head.next == null) return head;
-        ListNode  prev,cur,temp;
-        cur = head;prev = null;
-        while(cur!=null){
-            temp=cur.next;
-            cur.next=prev;
-            prev=cur;
-            cur=temp;
-        }
-        return prev;
+    TreeNode prev;
+    public boolean isValidBST(TreeNode root) {
+        prev=null;
+        return helper(root);   
+    }
+    private boolean helper(TreeNode root){
+        if(root==null) return true;
+        if(helper(root.left)==false) return false;
+        if(prev!=null && prev.val >= root.val) return false;
+        prev=root;
+        return helper(root.right);
+        
     }
 }
