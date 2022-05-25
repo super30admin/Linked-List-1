@@ -98,6 +98,10 @@ class Solution {
 }
 
 // ---------------ONE PAss------------------------------
+// Time Complexity :O(n) where n is no of nodes
+// Space Complexity :constant
+// Did this code successfully run on Leetcode :Yes
+// Any problem you faced while coding this :No
 class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
         ListNode fast = head;
