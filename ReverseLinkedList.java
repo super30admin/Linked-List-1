@@ -34,6 +34,37 @@ class ReverseLinkedList {
 }
 
 /**
+ * recursive approach
+ * 
+ * time: O(n)
+ * space: O(n)
+ * 
+ * Leetcode run: yes
+ * 
+ * Approach:
+ * 1. Traverse till the last element of the list
+ * 2. When base case is reached recursion will unfold
+ * 3. Stack will pop the 2nd last element
+ * 4. Link the last element's next (head.next.next) to the 2nd last element(head)
+ * 5. repeats till the recursion unfolds completely
+ *  Here the reversed in local scope doesn't change while unfolding
+ * 
+ */
+class ReverseLinkedListEx2 {
+    public ListNode reverseList(ListNode head) {
+        // base
+        if(head == null || head.next == null) return head;
+        
+        // logic
+        ListNode reversed = reverseList(head.next);
+        head.next.next = head;
+        head.next = null;
+
+        return reversed;
+    }
+}
+
+/**
  * Definition for singly-linked list.
  *  */
 class ListNode {
