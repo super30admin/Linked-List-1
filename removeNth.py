@@ -50,3 +50,47 @@ class Solution:
         
         # return head
         return head
+
+
+"""Approach 2:
+Only one pass.
+First add a dummy node before the head. Then pointer p1 initialized at dummy node.
+Progress p1 until it is n+1 steps from the dummy node. Now initialize p2 at dummy node
+and progress p1 and p2 until p1 doesn't reach end of the list.
+Then p2 will be exactly 1 step behind the node it needs to remove.
+
+Perform the removal, p2.next = p2.next.next but if p2.next is head of the list, then change the
+head of the list to p2.next.next before you remove the node.
+TC O(n) - we traverse list linear time
+SC O(1) no extra space used
+"""
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+        if not head:
+            return
+        dummy = ListNode(0)
+        dummy.next = head
+        p1 = dummy
+        for i in range(n+1):
+            p1 = p1.next
+            
+        p2 = dummy
+
+        while p1:
+            p1 = p1.next
+            p2 = p2.next
+
+        # if the node being removed is head, move head to next node
+        if p2.next == head:
+            head = p2.next.next
+        # then remove the node itself
+        p2.next = p2.next.next
+        
+        
+        return head
+        
