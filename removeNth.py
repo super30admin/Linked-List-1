@@ -73,6 +73,8 @@ class Solution:
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
         if not head:
             return
+        # dummy node helps us to be able to handle edge cases where we may
+        # need to delete head node
         dummy = ListNode(0)
         dummy.next = head
         p1 = dummy
