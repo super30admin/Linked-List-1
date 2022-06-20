@@ -98,8 +98,8 @@ public class Solution {
 
 
 //****REVERSE A LINKED LIST- ITERATIVE APPROACH****
-//Time complexity:
-//Space complexity:
+//Time complexity:o(n);
+//Space complexity:o(1);
 //Leetcode runnable: Y;
 //Any doubts: N;
 
