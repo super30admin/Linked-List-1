@@ -95,3 +95,50 @@ public class Solution {
     }
 }
 // Your code here along with comments explaining your approach
+
+
+//****REVERSE A LINKED LIST- ITERATIVE APPROACH****
+//Time complexity:
+//Space complexity:
+//Leetcode runnable: Y;
+//Any doubts: N;
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        //Null case
+        if(head==null)
+        {
+            return null;
+        }
+        
+        
+        //We need to assign 3 variables
+        ListNode curr=null;
+        ListNode nextpt=head;
+        ListNode fast=head.next;
+        //show must go till fast!=null
+        while(fast!=null)
+        {
+            nextpt.next=curr;
+            curr=nextpt;
+            nextpt=fast;fast=nextpt.next;
+        }
+        
+        //lastly we need to join for the last node which is remained
+        nextpt.next=curr;
+        
+        return nextpt;
+        
+        
+    }
+}
