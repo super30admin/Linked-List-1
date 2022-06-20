@@ -47,7 +47,7 @@ check.next.next.next = ListNode(4)
 check.next.next.next.next = ListNode(5)
 Solution().printList()
 
-
+# Recursive.
 # class ListNode:
 #     def __init__(self, x):
 #         self.val = x
@@ -86,7 +86,7 @@ Solution().printList()
 # check.next.next.next.next = ListNode(5)
 # Solution().printList()
 
-# iterative method.
+# iterative method (pointers).
 # class ListNode:
 #     def __init__(self, val=0, next=None):
 #         self.val = val
