@@ -142,3 +142,53 @@ class Solution {
         
     }
 }
+
+
+//****REMOVE Nth NODE FROM THE LAST OF THE LINKED LIST
+//Time complexity: o(n);
+//Space Complexity:o(1);
+//Leetcode runnable: Y;
+//Any doubts: N;
+
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        //Base case
+        
+        //We will have 2 pointers
+        int count=0;
+        ListNode dummy=new ListNode(-1);
+        dummy.next=head;
+        ListNode slow= dummy;
+        ListNode fast=dummy;
+        
+        //Move fast pointer till count<n
+        while(count<=n)
+        {
+            fast=fast.next;
+            count++;
+        }
+        
+        // nw move both pointers together
+        while(fast!=null)
+        {
+            slow=slow.next;
+            fast=fast.next;
+        }
+        
+        //now just assign next.next;
+        slow.next=slow.next.next;
+        return dummy.next;
+        
+    }
+}
