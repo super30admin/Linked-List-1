@@ -1,4 +1,45 @@
-//**CIRCULAR LINKEDLIST-2**
+//**CIRCULAR LINKEDLIST-2: BRUTEFORCE**
+//Time complexity: o(n);
+//Space complexity: o(n);
+//Leetcode runnable: Y;
+//Any doubts: N;
+
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode detectCycle(ListNode head) {
+        HashSet<ListNode> set=new HashSet<>();
+        
+        ListNode curr=head;
+        
+        while(curr!=null)
+        {
+            if(set.contains(curr))
+            {
+                return curr;
+            }
+            else
+            {
+                set.add(curr);
+                curr=curr.next;
+            }
+        }
+        return null;
+        
+    }
+}
+
+
+//****CIRCULAR LINKED LIST-2: OPTIMAL
 // Time Complexity :O(N);
 // Space Complexity :O(1);
 // Did this code successfully run on Leetcode :
