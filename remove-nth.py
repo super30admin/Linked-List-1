@@ -40,3 +40,27 @@ class Solution:
             curr_len+=1
 
         return head
+# #  On Pass   
+# # Definition for singly-linked list.
+# # class ListNode:
+# #     def __init__(self, val=0, next=None):
+# #         self.val = val
+# #         self.next = next
+# class Solution:
+#     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+#         dummy=ListNode(0,head)
+#         slow=dummy
+#         fast=dummy
+
+#         if not head or not head.next:
+#             return head.next 
+        
+#         while fast.next!=None: 
+#             fast=fast.next
+#             if n<=0:
+#                 slow=slow.next
+#             n=n-1
+#         slow.next=slow.next.next    
+
+#         return dummy.next
+            
