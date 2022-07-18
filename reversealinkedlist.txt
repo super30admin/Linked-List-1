@@ -1,0 +1,29 @@
+//Time Complexity : O(n) 
+//Space Complexity : O(1) 
+// Did this code successfully run on Leetcode : Yes
+
+
+class Solution 
+{
+    public ListNode reverseList(ListNode head) 
+    {
+        if(head == null)
+        {
+            return head;
+        }
+        ListNode prev = null;
+        ListNode curr = head;
+        ListNode f = curr.next;
+        
+        while(curr.next!=null)
+        {
+            curr.next = prev;
+            prev = curr;
+            curr = f;
+            f = f.next;
+        }
+        
+        curr.next = prev;
+        return curr;
+    }
+}

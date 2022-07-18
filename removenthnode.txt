@@ -1,0 +1,40 @@
+//Time Complexity : O(n) 
+//Space Complexity : O(1) 
+// Did this code successfully run on Leetcode : Yes
+
+
+class Solution 
+{
+    public ListNode removeNthFromEnd(ListNode head, int n) 
+    {
+        if(head == null || head.next == null)
+        {
+            return null;
+        }
+        ListNode p1 = head;
+        ListNode p2 = head;
+        
+        int i=0;
+        while(p1!=null && i<n)
+        {
+            p1 = p1.next;
+            i++;
+        }
+        //System.out.println(p1.val);
+        if(p1!=null)
+        {
+            while(p1.next!=null)
+            {
+                p1 = p1.next;
+                p2 = p2.next;
+            }
+            p2.next = p2.next.next;
+            
+        }else
+        {
+            head = head.next;
+        }
+        return head;
+        
+    }
+}

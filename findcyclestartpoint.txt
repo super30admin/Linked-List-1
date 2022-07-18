@@ -1,0 +1,49 @@
+//Time Complexity : O(n) 
+//Space Complexity : O(1) 
+// Did this code successfully run on Leetcode : Yes
+
+
+public class Solution 
+{
+    
+    public ListNode detectCycle(ListNode head) 
+    {
+        
+        if(head == null)
+        {
+            return null;
+        }
+        ListNode s = head;
+        ListNode l = cycleornot(head);
+        
+        if(l==null)
+        {
+            return null;
+        }
+        
+        while(s!=l)
+        {
+            s = s.next;
+            l = l.next;
+        }
+        return s;
+    }
+    
+    public ListNode cycleornot(ListNode head)
+    {
+        ListNode ptr1 = head;
+        ListNode ptr2 = head;
+        while(ptr1!= null && ptr1.next!=null)
+          {
+            
+              ptr1= ptr1.next.next;
+              ptr2 = ptr2.next;
+                if(ptr1 == ptr2)
+                {
+                    return ptr1;
+                }
+          }
+        
+        return null;
+    }
+}
