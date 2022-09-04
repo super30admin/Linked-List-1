@@ -1,0 +1,25 @@
+class Solution:
+    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+        dummy = ListNode(-1)
+        dummy.next = head
+        head = dummy
+        
+        f = head.next
+        for _ in range(n):
+            f = f.next
+        
+        s, prev = head.next, head
+    
+        while f:
+            
+            prev = s
+            s = s.next
+            f = f.next
+        
+        prev.next = s.next
+    
+        return head.next
+    
+# Time Complexity: O(n)
+# Space Complexity: O(1)
+# Successfully implemented on Leetcode
