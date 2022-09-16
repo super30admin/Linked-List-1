@@ -1,5 +1,5 @@
 """
-S30 FAANMG Problem #52 {Medium}
+ FAANMG Problem #52 {Medium}
 
 142. Linked List Cycle II
 

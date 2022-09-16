@@ -1,5 +1,5 @@
 """
-S30 FAANMG Problem #50 {Easy}
+ FAANMG Problem #50 {Easy}
 
 206. Reverse Linked List
 
@@ -53,7 +53,7 @@ class Solution:
         
         
 """
-S30 FAANMG Problem #50 {Easy}
+ FAANMG Problem #50 {Easy}
 
 206. Reverse Linked List
 

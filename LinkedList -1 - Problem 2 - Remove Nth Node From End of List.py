@@ -1,5 +1,5 @@
 """
-S30 FAANMG Problem #51 {Medium}
+ FAANMG Problem #51 {Medium}
 
 19. Remove Nth Node From End of List
 
