@@ -36,7 +36,9 @@ class Solution {
             fast = fast.next;
         }
         
+        ListNode p1 = slow.next;
         slow.next = slow.next.next;
+        p1.next = null;
         return dummy.next;
     }
 }
