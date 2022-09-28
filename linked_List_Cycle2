@@ -1,0 +1,33 @@
+//TimeComplexity O(n)
+//SpaceComplexity O(1)
+
+public class Solution {
+    public ListNode detectCycle(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head;
+        boolean flag = false;
+        
+        //part1 detect cycle
+        while( fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+            
+            if(slow == fast){
+                flag = true;
+                break;
+            }
+        }
+        
+        //return null if no cycle
+        if(!flag)return null;
+        
+        //return the node where cycle starts
+        slow = head;
+        
+        while(slow != fast){
+            fast = fast.next;
+            slow = slow.next;
+        }
+        return slow;
+    }
+}
