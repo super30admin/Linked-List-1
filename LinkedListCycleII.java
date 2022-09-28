@@ -17,17 +17,6 @@
  *     }
  * }
  */
-/**
- * Definition for singly-linked list.
- * class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) {
- *         val = x;
- *         next = null;
- *     }
- * }
- */
 // Time Complexity : O(n) where n = length of linked list
 // Space Complexity : O(1)
 //public class Solution {
