@@ -1,0 +1,55 @@
+Reverse Linked List
+#tc: O(n)
+#sc: O(1)
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        curr= head
+        prev= None
+        while curr!= None:
+            next= curr.next
+            curr.next= prev
+            prev= curr
+            curr= next
+        return prev
+
+Remove Nth Node From End of List
+#tc: O(n)
+#sc: O(1)
+class Solution:
+    def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
+        
+        sz, ptr = 0, head
+        
+        while ptr:
+            ptr = ptr.next
+            sz+=1
+
+        if n==sz:
+            return head.next
+
+        sz -= n+1
+        ptr = head 
+          
+        while sz > 0:
+            ptr = ptr.next
+            sz-=1
+            
+        ptr.next = ptr.next.next   
+        
+        return head
+
+Linked List Cycle II
+class Solution:
+    def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        
+	    slow = head 
+	    fast = head 
+	    while fast and fast.next: #while fast is not at the end of the list
+		    slow = slow.next
+		    fast = fast.next.next
+		    if slow == fast: #if we encountered a cycle
+			    while head!=slow: #move head and slow forward until they meet
+				    head = head.next
+				    slow = slow.next
+			    return slow #this is the start of the cycle!
+	    return None #no cycle
