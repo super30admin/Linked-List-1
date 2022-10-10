@@ -1,0 +1,21 @@
+class Solution:
+    def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        if (head==None):
+            return None
+        bol=False
+        s=head
+        f=head
+        while(f!=None and f.next!=None):
+            s=s.next
+            f=f.next.next
+            if (s==f):
+                bol=True
+                break
+        if(bol==False):
+            return None
+        else:     
+            s=head
+            while(s!=f):
+                s=s.next
+                f=f.next
+            return f

@@ -1,0 +1,27 @@
+
+Recurssive
+
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        if(head==None or head.next==None):
+            return head
+        rev=self.reverseList(head.next)
+        head.next.next=head
+        head.next=None
+        return rev
+
+Iterative
+
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]: 
+        prev=None
+        c=head
+        f=head.next
+        while(f!=None):
+            c.next=prev 
+            prev=c
+            c=f 
+            f=f.next
+            
+        c.next=prev
+        return c
