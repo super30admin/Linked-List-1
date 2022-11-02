@@ -1,0 +1,31 @@
+
+Time Complexity = O(n)
+Space Complexity = O(1)
+
+
+
+class Solution:
+    def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        flag = False
+        slow = head
+        fast = head
+        
+        while(fast!=None and fast.next!=None):
+            fast = fast.next.next
+            slow = slow.next
+            
+            if fast==slow:
+                flag = True
+                break
+                
+        
+        if flag == False:
+            return None
+        
+        fast = head
+        while(fast!=slow):
+            fast = fast.next
+            slow = slow.next
+            
+        return fast
+        
