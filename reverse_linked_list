@@ -1,0 +1,65 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+
+
+// Approach 1
+// Time Complexity : O(N)
+// Space Complexity : O(1)
+// Did this code successfully run in leetcode : Yes
+// Any problems faced : No
+// Three Pointer technique
+
+// class Solution {
+// public:
+//     ListNode* reverseList(ListNode* head) {
+        
+//         if(head == NULL || head -> next == NULL) return head;
+
+//         ListNode* prev = NULL;
+//         ListNode* curr = head;
+//         ListNode* fast = head -> next;
+
+//         while(fast != NULL) {
+//             curr -> next = prev;
+//             prev = curr;
+//             curr = fast;
+//             fast = fast -> next;
+//         }
+//         curr -> next = prev; // for last node
+//         return curr;
+//     }
+// };
+
+
+
+// Approach 2
+// Time Complexity : O(N)
+// Space Complexity : O(N)
+// Did this code successfully run in leetcode : Yes
+// Any problems faced : No
+// Using recursion
+
+
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        
+        if(head == NULL || head -> next == NULL) return head;
+
+        ListNode* reverse = reverseList(head -> next);
+        //st.pop()
+        head -> next -> next = head;
+        head -> next = NULL;
+
+        return reverse; // reverse will always be last node bcoz it is the one which is returned
+        // reverse is never pushed into recursive stack
+    }
+};
