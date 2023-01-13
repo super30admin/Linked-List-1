@@ -1,0 +1,40 @@
+// Time Complexity : O(N)
+// Space Complexity : O(1)
+// Did this code successfully run in leetcode : Yes
+// Any problems faced : No
+// Two pointers where one moves one step ahead and other moves two steps ahead, if they meet, there exists a cycle
+// distance from head to start of cycle = distance from meeting point to start of cycle
+
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode *detectCycle(ListNode *head) {
+        bool flag = false;
+        if(head == NULL) return head;
+        ListNode* fast = head;
+        ListNode* slow = head;
+        while(fast != NULL && fast -> next != NULL) {
+            slow = slow -> next;
+            fast = fast -> next -> next;
+            if(fast == slow) {
+                flag = true;
+                break;
+            }
+        }
+        if(!flag) return NULL;
+        fast = head;
+        while(fast != slow) {
+            fast = fast -> next;
+            slow = slow -> next;
+        }
+        return fast;
+    }
+};

@@ -1,0 +1,42 @@
+// Time Complexity : O(N)
+// Space Complexity : O(1)
+// Did this code successfully run in leetcode : Yes
+// Any problems faced : No
+// maintain a distance of n nodes between two pointers and when first pointer goes to null, node can be easily removed using second pointer
+
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        if(head == NULL) return head;
+
+        ListNode* dummy = new ListNode(0); // to maintain consistency while removing head
+        dummy -> next = head;
+
+        ListNode* fast = dummy;
+        ListNode* slow = dummy;
+
+        int count = 0;
+        while(count <= n) {
+            count++;
+            fast = fast -> next;
+        }
+
+        while(fast != NULL) {
+            fast = fast -> next;
+            slow = slow -> next;
+        }
+        slow -> next = slow -> next -> next;
+        return dummy -> next;
+    }
+};
