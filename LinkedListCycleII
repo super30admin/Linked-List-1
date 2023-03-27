@@ -1,0 +1,34 @@
+// time complexity: O(n)
+//space complexity:O(1)
+public class LinkedListCycleII {
+    public ListNode detectCycle(ListNode head) {
+        boolean flag=false;
+        if(head==null){
+            return null;
+        }
+        ListNode slow = head;
+        ListNode fast=head;
+         
+// iterate slow by 1 and fast by 2, if they meet at same point cycle exists
+         while(fast!=null && fast.next!= null){     
+             slow= slow.next;
+             fast=fast.next.next;
+             if(slow==fast){
+                 flag =true;
+                 break;
+
+             }
+         }
+             if(!flag){return null;}
+             else{
+// if cycle exists, move one of the pointer at head and increment by 1 both the pointers.
+//since distance from head to first index of cycle is same as the meeting point from both pointers to first index of cycle
+                 slow=head;
+                while(slow!=fast){
+                    slow= slow.next;
+                    fast=fast.next;
+                }
+                return slow;
+             }
+    }
+}
