@@ -1,0 +1,18 @@
+//time complexity: O(n)
+//space complexity: O(n)
+
+//recursive method
+ class ReverseLinkedListRecursive {
+     ListNode reversed;
+    public ListNode reverseList(ListNode head) {
+     if(head==null || head.next==null){
+         return head;
+     }
+     reversed=reverseList(head.next);
+     head.next.next=head;
+     head.next=null;
+     return reversed;
+     
+    }
+    
+}
