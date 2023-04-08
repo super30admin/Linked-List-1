@@ -30,15 +30,16 @@ class Solution {
 //
 //         ListNode prev = null;
 //         ListNode cur = head;
-//         ListNode next;
-//         while(cur!=null)
+//         ListNode extra = cur.next;
+//         while(extra != null)
 //         {
-//             next = cur.next;
 //             cur.next = prev;
 //             prev = cur;
-//             cur = next;
+//             cur = extra;
+//             extra = extra.next;
 //         }
-//         return prev;
+//         cur.next = prev;
+//         return cur;
       
     }
 }
