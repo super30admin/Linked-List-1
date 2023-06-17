@@ -14,7 +14,7 @@ class Solution:
         #This condition checks if the element present is single element or the linked list is empty
         if(head==None or head.next==None):
             return head
-        
+
         #Variable assignment
         prev=None
         curr=head
@@ -29,3 +29,21 @@ class Solution:
         #Assigning last element the previous value
         curr.next=prev
         return curr
+
+
+#Following code is recursive solution of the above mentioned problem
+
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        if (head == None or head.next == None):
+            return head
+        rlist = self.reverseList(head.next)
+        head.next.next = head
+        head.next = None
+        return rlist
