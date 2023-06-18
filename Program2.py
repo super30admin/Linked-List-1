@@ -33,5 +33,5 @@ class Solution(object):
         temp=self.slow.next
         self.slow.next=self.slow.next.next
         temp.next=None
-        #we will be returning the final linked list
+        #we will be returning the final linked list which is next to dummy
         return self.dummy.next

@@ -27,5 +27,5 @@ class Solution(object):
             self.curr.next=self.prev
             self.prev=self.curr
             self.curr=self.temp
-        #Finally returning previous pointer
+        #Finally returning previous pointer as output
         return self.prev
