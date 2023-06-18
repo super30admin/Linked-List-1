@@ -39,5 +39,5 @@ class Solution(object):
         while(self.slow!=self.fast):
                 self.slow=self.slow.next
                 self.fast=self.fast.next
-        #Finally we will be returning the slow pointer
+        #Finally we will be returning the slow pointer as output
         return self.slow
