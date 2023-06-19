@@ -46,4 +46,4 @@ class Solution:
         rlist = self.reverseList(head.next)
         head.next.next = head
         head.next = None
-        return rlist
+        return rlist 
