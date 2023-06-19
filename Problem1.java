@@ -1,18 +1,18 @@
 package linkedList1;
+
 /**
  * 
- * In the iterative approach we use 3 pointers prev, curr and fast. At every step we link curr to prev node and move curr to fast and fast to the next node. 
- * In the recursive approach we keep calling recursively till we reach the second last element of the linkedlist and the point element.next.next to element thereby reversing at the 
- * link at next node at every call.
- *  
- * Time Complexity :
- * O(n) for iterative approach
- * O(n) for recursive approach
+ * In the iterative approach we use 3 pointers prev, curr and fast. At every
+ * step we link curr to prev node and move curr to fast and fast to the next
+ * node. In the recursive approach we keep calling recursively till we reach the
+ * second last element of the linkedlist and the point element.next.next to
+ * element thereby reversing the link at next node at for the curr node every
+ * call.
+ * 
+ * Time Complexity : O(n) for iterative approach O(n) for recursive approach
  * 
  * 
- * Space Complexity :
- * O(1) for iterative aproach
- * O(n) for recursive approach
+ * Space Complexity : O(1) for iterative aproach O(n) for recursive approach
  * 
  * Did this code successfully run on Leetcode : yes
  * 

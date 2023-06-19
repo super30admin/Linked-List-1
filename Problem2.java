@@ -1,14 +1,15 @@
 package linkedList1;
+
 /**
  * 
- * We maintain the slow and fast pointers such that they start at n+1 distance from each other. And then we move fast and slow by one element till fast reaches the end and slow will point the 
- * element previous to the one that has to be removed. Then normal deleteion can be performed.
- *  
- * Time Complexity :
- * O(n) 
- *  
- * Space Complexity :
- * O(1) as we are not using any auxillary DS
+ * We maintain the slow and fast pointers such that they start at n+1 distance
+ * from each other. And then we move fast and slow by one element till fast
+ * reaches the end and slow will point the element previous to the one that has
+ * to be removed. Then normal deletion can be performed.
+ * 
+ * Time Complexity : O(n)
+ * 
+ * Space Complexity : O(1) as we are not using any auxillary DS
  * 
  * Did this code successfully run on Leetcode : yes
  * 
