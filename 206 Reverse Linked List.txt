@@ -1,0 +1,38 @@
+206. Reverse Linked List
+
+
+
+//TC=O(n) SC=O(n) //using recursion
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        if(head==null || head.next==null)return head;
+        //logic
+       ListNode reverse=reverseList(head.next);
+       head.next.next=head;
+       head.next=null;
+       return reverse;
+
+    }
+}
+
+/*
+ //TC=O(n) SC=O(1) Iterative solution
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        if(head==null)return null;
+        ListNode prev=null;
+        ListNode cur=head;
+        ListNode fast=head.next;
+        while(fast!=null){
+            cur.next=prev;
+            prev=cur;
+            cur=fast;
+            fast=fast.next;
+        }
+        cur.next=prev;
+        return cur;
+        
+    }
+}
+
+*/
