@@ -56,5 +56,38 @@ int main(int argc, char const *argv[])
 
 // Using reccursion
 
+/*
+Using the three pointers curr,prev,fast
+
+// Time Complexity : O(N)
+// Space Complexity : O(N) - stack length 
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : 
+To point backwards between the nodes.
+
+
+// Your code here along with comments explaining your approach
+Take head and go to the last element , using recurssoin while storing the previous elements in the system stack
+After the head is reached we make connection from that point to the prev linked list
+head->head->next = head
+and make the lose pointer point to NULL
+
+*/
+
+
+
+class Solution_2 {
+    ListNode* reversed(ListNode* head){
+        if(head == nullptr || head->next == nullptr) return head;
+        ListNode* reverse = reversed(head->next);
+        head->next->next = head;
+        head->next = nullptr;
+        return reverse;
+    }
+public:
+    ListNode* reverseList(ListNode* head) {
+        return reversed(head);
+    }
+};
 
 
