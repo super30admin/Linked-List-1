@@ -17,33 +17,34 @@ public class Solution {
     // Time Complexity : O(n)
     // Space Complexity : O(1)
     public ListNode reverseList_1(ListNode head) {
+        //null
+        if (head == null || head.next == null) {
+            return head;
+        }
         ListNode prev = null;
-        ListNode next = null;
         ListNode curr = head;
-        while (curr != null) {
-            next = curr.next;
+        ListNode temp = curr.next;
+        while (temp != null) {
             curr.next = prev;
             prev = curr;
-            curr = next;
+            curr = temp;
+            temp = temp.next;
         }
-        return prev;
+        curr.next = prev;
+        return curr;
     }
 
     // Time Complexity : O(n)
     // Space Complexity : O(1)
-    public ListNode reverseList_2(ListNode head) {
-        ListNode prev = null;
-        ListNode next = null;
-        ListNode curr = head;
-        while (curr != null) {
-            next = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = next;
+    public ListNode reverseList(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
         }
-        return prev;
+        ListNode result = reverseList(head.next);
+        head.next.next = head;
+        head.next = null;
+        return result;
     }
-
 
     // Time Complexity : O(n)
     // Space Complexity : O(1)
@@ -85,5 +86,34 @@ public class Solution {
             fast = fast.next;
         }
         return slow;
+    }
+
+    // Time Complexity : O(n)
+    // Space Complexity : O(1)
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        // if(head == null){
+        //     return head;
+        // }
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        ListNode ptr1 = dummy;
+        ListNode ptr2 = dummy;
+        int count = 0;
+        while (count <= n) {
+            ptr2 = ptr2.next;
+            count++;
+        }
+        if (ptr2 == null) {
+            return head.next;
+        }
+        while (ptr2 != null) {
+            ptr1 = ptr1.next;
+            ptr2 = ptr2.next;
+        }
+        //delete node at ptr1.next
+        ListNode temp = ptr1.next;
+        ptr1.next = ptr1.next.next;
+        temp.next = null;
+        return head;
     }
 }
