@@ -1,0 +1,25 @@
+Intuition : Slow (1X speed) and fast pointer (2X speed) they meet, after meeting set the slow to the start and let them move at same speed, then they meet again at the start of the cycle
+public class Solution {
+    public ListNode detectCycle(ListNode head) {
+        // null
+        if(head == null) return null;
+        ListNode slow = head;
+        ListNode fast = head;
+        boolean flag = false;
+        while(fast != null && fast.next != null){
+                slow = slow.next;
+                fast = fast.next.next;
+                if(slow == fast){
+                    flag = true;
+                    break;
+                }
+        }
+        if(!flag) return null;
+        slow = head;
+        while(slow != fast){
+            slow = slow.next;
+            fast = fast.next;
+        }
+        return slow;
+    }
+}
