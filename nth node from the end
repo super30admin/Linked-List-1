@@ -1,3 +1,6 @@
+Intuition: using slow and fast pointers create a gap in such a way that when fast reaches null, the slow is 1 step behind the node that is supposed to be deleted.
+TC = O(N), SC = O(1) 
+
 class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
         ListNode dummy = new ListNode(-1);
