@@ -1,0 +1,29 @@
+//// Time Complexity : O(n)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : yes
+// Any problem you faced while coding this : here we are using two pointer slow and fast. 
+// slow will increment by 1 and fast will increment by 2 when slow reached fast will do break that means we detected the loop
+// then to return the head will make one pointer points to head and incremne both till slow reached fast.
+
+class LLCycle2{
+    public ListNode detectCycle(ListNode head) {
+        ListNode fast = head;
+        ListNode slow = head;
+        boolean flag = false;
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+            if(slow == fast){
+                flag = true;
+                break;
+            }
+        }
+        if(flag != true) return null;
+        slow = head;
+        while(slow != fast){
+            slow = slow.next;
+            fast = fast.next;
+        }
+        return slow;
+    }
+}
