@@ -5,7 +5,7 @@
 //Definition for singly-linked list.
 class ListNode {
     int val;
-    ListNode next;
+    listnode next;
     ListNode(int x) {
         val = x;
         next = null;
@@ -14,12 +14,12 @@ class ListNode {
 
 
 public class linkedListCycle {
-    public ListNode detectCycle(ListNode head) {
+    public listnode detectCycle(listnode head) {
         if(head == null){
             return null;
         }
-        ListNode slow = head;
-        ListNode fast = head;
+        listnode slow = head;
+        listnode fast = head;
         boolean hasCycle = false;
 
         while(fast != null && fast.next != null){
@@ -47,11 +47,11 @@ public class linkedListCycle {
     }
 
     public static void main(String[] args){
-        ListNode head = new ListNode(1);
-        ListNode node2 = new ListNode(2);
-        ListNode node3 = new ListNode(3);
-        ListNode node4 = new ListNode(4);
-        ListNode node5 = new ListNode(5);
+        listnode head = new listnode(1);
+        listnode node2 = new listnode(2);
+        listnode node3 = new listnode(3);
+        listnode node4 = new listnode(4);
+        listnode node5 = new listnode(5);
 
         head.next = node2;
         node2.next = node3;
@@ -64,7 +64,7 @@ public class linkedListCycle {
         linkedListCycle solution = new linkedListCycle();
 
         // Detect and print the start of the cycle (if it exists)
-        ListNode cycleStart = solution.detectCycle(head);
+        listnode cycleStart = solution.detectCycle(head);
 
         if (cycleStart != null) {
             System.out.println("Cycle starts at node with value: " + cycleStart.val);
