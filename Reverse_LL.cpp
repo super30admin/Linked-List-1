@@ -9,7 +9,23 @@
  * };
  */
 class Solution {
-    void ReversalFunction(ListNode* p, ListNode*& head){
+public:
+    ListNode* reverseList(ListNode* head) {
+        if(head==NULL || head->next==NULL)return head;
+        ListNode* result = reverseList(head->next); 
+        head->next->next = head;
+        head->next = NULL;
+        return result;
+        
+
+        
+    }
+};
+
+
+
+/*
+   void ReversalFunction(ListNode* p, ListNode*& head){
         if(p->next == NULL){
             head = p;
             return;
@@ -26,4 +42,4 @@ public:
         ReversalFunction(head,head);
         return head;
     }
-};
+*/
