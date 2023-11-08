@@ -77,3 +77,37 @@ class Solution2 {
         return head;
     }
 }
+
+
+// We want to handle the edge case of removing head without doing head.next
+// We maintain a dummy node for this purpose.
+// place fast on dummy move it n+1 times.
+// place slow on dummy. move slow and fast a same pace.
+// if fast becomes null just after creation of gap it will be directly taken care of by slow.
+// remove the next of slow at last.
+
+
+
+class Solution3 {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+
+        ListNode dummy= new ListNode();
+        
+        ListNode slow=dummy, fast=dummy;
+
+        dummy.next=head;
+
+        for(int i=0; i<=n; i++){
+            fast=fast.next;
+        }
+
+        while(fast!=null){
+            slow=slow.next;
+            fast=fast.next;
+        }
+
+        slow.next=slow.next.next;
+
+        return dummy.next;
+    }
+}
