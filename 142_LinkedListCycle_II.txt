@@ -1,0 +1,88 @@
+/* B-F approach
+ * take Hashset and check if that contains the node, if so that's the cyclic node
+ *TC- O(n)
+ *sc -O(n)
+*/
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode detectCycle(ListNode head) {
+        
+        if(head == null || head.next == null) return null;
+        
+        Set<ListNode> set = new HashSet<>();
+        
+        while(head!= null)
+        {
+            if(set.contains(head))
+            {
+                return head;
+            }
+            set.add(head);
+            head = head.next;
+        }
+        return null;
+    }
+}
+
+
+
+//appoach -2 optimized on space.
+//mathematical fundamental -
+//1. two pointer , slow and fast
+//2. slow moves by 1, fast by 2
+//3. when they meet for the first time, reset fast to head!
+//4. fast = fast.next only
+//5.when fast.next == slow.next , that's node - cyclic
+//TC- O(n) + O(n) =O(n)
+//SC- O(1)
+ 
+**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode detectCycle(ListNode head) {
+        
+        if(head == null || head.next == null) return null;
+        
+		//step 1
+		ListNode slow = head;
+		ListNode fast = head;
+		
+		slow = slow.next;
+		fast = fast.next.next;
+		
+		//step 2
+		while(slow != fast)
+		{
+			slow = slow.next;
+			fast = fast.next.next;
+		}
+		
+		//step 3
+		fast = head;
+		
+		while(slow.next != fast.next)
+		{
+			slow = slow.next;
+			fast = fast.next;
+		}
+		
+		return slow.next; //or return fast.next;
