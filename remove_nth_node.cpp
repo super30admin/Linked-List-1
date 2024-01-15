@@ -1,11 +1,12 @@
-// Time Complexity :
-// Space Complexity :
-// Did this code successfully run on Leetcode :
-// Any problem you faced while coding this :
+// Time Complexity : O(n)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : yes
+// Any problem you faced while coding this : no 
 
 
 // Your code here along with comments explaining your approach
-// We use two pointers to find the lcoation of node and then return.
+// Idea is to use two pointers and iterate fast pointer to nth node from start in the list. Then traverse
+// two pointers adn then update slow pointer links when fast reaches the end and then return the updated list.
 
 //Definition for singly-linked list.
 struct ListNode {
