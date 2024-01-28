@@ -1,0 +1,35 @@
+#Linked List Cycle II
+
+#Time Complexity: O(N)
+#Space Complexity: O(1)
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        # Step 1: Check if there is a cycle using Floyd's Tortoise and Hare algorithm
+        slow = head
+        fast = head
+
+        while fast is not None and fast.next is not None:
+            slow = slow.next
+            fast = fast.next.next
+
+            # If there is a cycle, break the loop
+            if slow == fast:
+                break
+        else:
+            # No cycle found
+            return None
+
+        # Step 2: Find the node where the cycle begins
+        slow = head
+        while slow != fast:
+            slow = slow.next
+            fast = fast.next
+
+        return slow
