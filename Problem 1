@@ -1,0 +1,32 @@
+# reverse linked list
+
+# In this implementation, the reverseList method reverses the linked list iteratively, while the reverseListRecursive method reverses it recursively. Both methods return the head of the reversed list.
+# Iterative Approach: TC = O(n), SC = O(1)
+# Recursive Approach: TC = O(n), SC = O(n)
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        # Iterative Approach
+        prev = None
+        curr = head
+        while curr:
+            next_node = curr.next
+            curr.next = prev
+            prev = curr
+            curr = next_node
+        return prev
+
+    def reverseListRecursive(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        # Recursive Approach
+        if not head or not head.next:
+            return head
+        reversed_head = self.reverseListRecursive(head.next)
+        head.next.next = head
+        head.next = None
+        return reversed_head
