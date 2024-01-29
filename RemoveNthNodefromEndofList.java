@@ -39,7 +39,7 @@ public class RemoveNthNodefromEndofList {
         }
 
 
-/* Time Complexity = O(1) - does not depend on any variable apart from n which is an input, only pointers used
+/* Time Complexity = O(L) - L is length of Linked List, only pointers used
 Space Complexity = O(1) */
 
 
