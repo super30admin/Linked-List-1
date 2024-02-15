@@ -1,6 +1,6 @@
 '''
 TC: O(n)
-SC: O(1)
+SC: O(n)
 '''
 # Definition for singly-linked list.
 from typing import Optional
