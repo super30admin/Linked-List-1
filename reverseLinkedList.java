@@ -1,4 +1,6 @@
 public class reverseLinkedList {
+    //TC: O(n)
+    //SC: O(1)
     public ListNode reverseList(ListNode head) {
         if(head == null){
             return null;
