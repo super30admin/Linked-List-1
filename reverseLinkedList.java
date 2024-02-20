@@ -22,21 +22,5 @@ public class reverseLinkedList {
         return head;
 
 
-
-        // Stack<Integer> st1 = new Stack<>();
-
-
-        // while(head!=null){
-        //     st1.push(head.val);
-        //     head = head.next;
-        // }
-        // ListNode result = new ListNode(Integer.MIN_VALUE);
-        // ListNode ptr = result;;
-        // while(!st1.isEmpty()){
-        //     ptr.next = new ListNode(st1.pop());
-        //     ptr = ptr.next;
-        // }
-
-        // return result.next;
     }
 }
