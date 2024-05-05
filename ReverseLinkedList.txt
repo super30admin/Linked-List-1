@@ -1,0 +1,46 @@
+Time Complexity: O(n); n : length of the input.
+Space Complexity: O(n); if there are n nodes in input, n new listnodes are created.
+Challenges: When temp node points to the head node directly, it is modifying the memory of head. Hence create a new node 
+out of the head node value.
+Approach: Traverse through the head until end of the list. During traversal, take a null and point first node next to null.
+Keep creating a newnode and assign next node as already traversed values.
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode reverseList(ListNode head) {     
+       ListNode reversedList=null;
+       while(head!=null){
+        ListNode tempNode = new ListNode(head.val);
+        tempNode.next=reversedList;
+        reversedList=tempNode;
+        head=head.next;
+       }
+       return reversedList;
+    }
+}
+
+Time Complexity: O(n); n : length of the input.
+Space Complexity: O(1); Constant space
+Approach: Instead of creating a new node , we are reorganizing existing nodes. Below code doesn't require additional space.
+/** Optimized approach **/
+class Solution {
+    public ListNode reverseList(ListNode head) {     
+       ListNode prev=null;
+       ListNode curr=head;
+       while(curr!=null){
+        ListNode next = curr.next;
+        curr.next=prev;
+        prev=curr;
+        curr=next;
+       }
+       return prev;
+    }
+}

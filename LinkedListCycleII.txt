@@ -1,0 +1,42 @@
+Time Complexity: O(n)
+Space Complexity: O(1)
+Challenges: It is important to bring the slow pointer to head after a cycle is detected. 
+Approach: Fast pointer is travelling two times the speed of slow pointer. 
+When slow pointer and fast pointer match then a cycle is detected. 
+After a cycle is detected. Initialize slow pointer to head. Move fast and slow pointer until they match at head.
+2(a+b)= a+2b+c  ==> a=c
+
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode detectCycle(ListNode head) {
+      
+       ListNode fast=head;
+       ListNode slow=head;
+       boolean flag=false;
+       while(fast!=null && fast.next!=null){
+            fast=fast.next.next;
+            slow=slow.next;
+            if(fast==slow){
+                flag=true;
+                break;
+            }
+       }
+       if(flag==false) return null;
+       slow=head;
+       while(fast!=slow){
+        fast=fast.next;
+        slow=slow.next;
+       }
+       return slow;
+    }
+}
