@@ -1,0 +1,41 @@
+// Time Complexity : O(N)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : No
+
+/**
+     * Approach - using Two pointers -fast and slow maintains the nodes difference of n
+     * Finding the fast pointer and move both pointers one step
+     * Once we have reached the node, to delete it point the slow to slow.next.next and set slow.next as null
+     *return
+     */
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode fast = head;
+        ListNode slow = head;
+        int count = 0;
+        while(count<n){
+            fast = fast.next;
+            count++;
+            if(fast==null) return head.next;
+        }
+        while(fast.next!=null){
+            slow = slow.next;
+            fast=fast.next;
+        }
+        slow.next = slow.next.next;
+        return head;
+
+    }
+}
