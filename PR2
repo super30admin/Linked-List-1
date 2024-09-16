@@ -1,0 +1,43 @@
+
+// Time Complexity : O(n) - n is the number of nodes in the linked list.
+// Space Complexity :O(1) - no extra space used.
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : No
+// Your code here along with comments explaining your approach: Single pass. Dummy node used. Two pointer approach. We increase the fast pointer until it is greater that the target number given. Move both the slow and fast pointers until the fast pointer reaches null.Then remove the required element. Sliding window approach.
+
+
+
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        if(head==null) return head;
+        ListNode dummy=new ListNode(0);
+        ListNode slow=dummy;
+        ListNode fast=dummy;
+        dummy.next=head;
+        int count=0;
+        while(count<=n){
+            fast=fast.next;
+            count++;
+        }
+        while(fast!=null){
+            slow=slow.next;
+            fast=fast.next;
+        }
+        
+        slow.next=slow.next.next;
+        return dummy.next;
+        
+        
+    }
+}
