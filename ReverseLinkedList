@@ -1,0 +1,41 @@
+// Time Complexity: O(n) as it visits each node in the list
+// Space Complexity: O(1)
+
+// Iterative Solution
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        if(head == null || head.next == null) return head;
+
+        ListNode prev = null;
+        ListNode curr = head;
+        ListNode fast = null;
+
+        while(curr != null){
+            fast = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = fast;
+
+        }
+        return prev;
+
+    }
+}
+
+// Time Complexity: O(n) as it visits each node in the list
+// Space Complexity: O(n) -> as each node is added to the stack once
+
+// Recursive Solution
+
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        if(head == null || head.next == null) return head;
+
+        ListNode r = reverseList(head.next);
+        head.next.next = head;
+        head.next = null;
+
+        return r;
+
+    }
+}
