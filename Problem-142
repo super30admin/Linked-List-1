@@ -1,0 +1,99 @@
+/*
+
+Time Complexity: O(n).
+
+Space Complexity: O(1).
+
+LeetCode : successful
+Runtime: 0 ms, faster than 100.00% of Java online submissions for Linked List Cycle II.
+Memory Usage: 34 MB, less than 95.79% of Java online submissions for Linked List Cycle II.
+
+
+Approach:
+
+First identify if there is a loop or not by using two pointers slow and fast
+slow =slow+1
+fast=fast+2;
+
+if elemnt of slow == element of fast then we have a loop.
+
+Now, once we know that we have a loop, find out the length of the loop
+using same slow and fast pointer, increment counter till you have same values for both.
+
+Once we have the length of the loop.
+
+again iterate through the linkedlist, using two pointers.
+pointer 1 starts at head
+and pointer2 starts at head when pointer1 is index of the loop size.
+
+now, when we have pointer1 .next equals pointer2, we would return pointer2 element.
+
+*/
+
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode detectCycle(ListNode head) {
+        
+        
+        if(head==null||head.next==null)  return null;
+        if(head.next==head) return head;
+
+        ListNode temp=head;
+        ListNode temp1=head;
+        
+        while(temp.next!=null&&temp1.next!=null&&temp1.next.next!=null)
+        {
+            temp=temp.next;
+            temp1=temp1.next.next;
+            if(temp==temp1){
+                int size=getLength(temp);
+                return getNode(head,size);
+            }
+        }
+        
+        return null;
+    }
+    
+    ListNode getNode(ListNode head,int count)
+    {
+        int i=1;
+        ListNode temp=head;
+        ListNode temp1=head;
+        while(i<count)
+        {
+            i++;
+            temp=temp.next;
+        }
+        
+        while(temp.next!=temp1)
+        {
+            temp=temp.next;
+            temp1=temp1.next;
+        }
+        
+        return temp1;
+    }
+    
+    int getLength(ListNode temp)
+    {
+        int n=0;
+        ListNode temp1=temp;
+        while(true)
+        {
+            n++;
+            temp=temp.next;
+            temp1=temp1.next.next;
+            if(temp==temp1) return n;
+        }
+    }
+}

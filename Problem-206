@@ -1,0 +1,57 @@
+/*
+Time Compleity: O(n) single pass.
+
+Space Complexity: O(1);
+
+LeetCode: successful
+Runtime: 0 ms, faster than 100.00% of Java online submissions for Reverse Linked List.
+Memory Usage: 37.1 MB, less than 98.92% of Java online submissions for Reverse Linked List.
+
+
+Approach:
+
+Make a copy of head into a new node.
+make this node.next=null
+
+use 3 pointers to swap the .next of every node to previous node.
+now start from head.next, till the end.
+
+
+
+
+*/
+
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        
+        if(head==null) return null;
+        ListNode temp= new ListNode(head.val);
+        temp.next=null;
+        ListNode temp1=head;
+        ListNode temp2;
+        
+        if(temp1.next==null) return temp1;
+        temp1=temp1.next;
+        while(temp1.next!=null)
+        {
+        
+            temp2=temp1.next;
+            temp1.next=temp;
+            temp=temp1;
+            temp1=temp2;       
+            
+        }
+         
+        temp1.next=temp;
+        return temp1;
+    }
+}
