@@ -1,0 +1,43 @@
+// Time Complexity : O(n)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : No
+
+public class Solution {
+    public ListNode detectCycle(ListNode head) {
+        
+        /* brute force
+        // add listnode to set and if node already in set then return that node else add to set and move to next node
+        Set<ListNode> set = new HashSet<>();
+        
+        while(head != null){
+            if(set.contains(head))
+                return head;
+            else
+                set.add(head);
+            head = head.next;
+        }
+        
+        */
+        
+        /* two pointer slow and fast approach*/
+        ListNode slow = head;
+        ListNode fast = head;
+        
+        while (fast!=null && fast.next!=null){ // fast and fast.next is not null
+            fast = fast.next.next; // fast will move 2 steps
+            slow = slow.next; // slow will move 1 step
+                    
+            if (fast == slow){ // if both fast and slow are same
+                   ListNode slow2 = head;  // to get the start of cycle
+                   while (slow2 != slow){
+                        slow = slow.next;
+                        slow2 = slow2.next;
+                    }
+                    return slow;
+            }
+         }
+               
+        return null;
+    }
+}

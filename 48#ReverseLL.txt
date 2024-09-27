@@ -1,0 +1,52 @@
+// Time Complexity : O(n)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : No
+
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        /* Brute Force 
+           // Add all values to stack and now create new ll and pop stack values to create new reverse ll
+           if( head  == null || head.next == null)
+            return head;
+           Stack<Integer> stack = new Stack<>();
+           
+           while(head != null){
+            stack.push(head.val);
+            head = head.next;
+           }
+           
+           ListNode newHead = new ListNode(0), cur = newHead;
+           
+           while(!stack.isEmpty()){
+                    cur.next = new ListNode(stack.pop());
+                    cur = cur.next;
+           }
+           
+           return newHead.next;
+           
+         */
+        
+        /* Iterative approach
+          change next pointer, next should pointer to prev pointer
+        if(head == null || head.next == null) return head; // edge case
+        ListNode prev = null; // intial prev is null
+        while(head != null){      // while we dont reach the end of list
+            ListNode temp = head.next;   // store next element reference
+            head.next = prev;    //cur next pointer point to prev 
+            prev = head;      // prev for next element is cur
+            head = temp;   //now temp becomes new head
+        }
+        return prev; 
+        */
+        
+        /* Recursive approach */
+        
+        if( head == null || head.next == null)  // edge case
+            return head;
+        ListNode prev = reverseList(head.next);  // reverse the next elements
+        head.next.next = head;  // next  element next is current
+        head.next = null;   // cur element next is null
+        return prev;
+    }
+}
