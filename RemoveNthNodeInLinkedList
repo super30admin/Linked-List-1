@@ -1,0 +1,34 @@
+# Time Complexity : O(n)
+# Space Complexity : O(1)
+# Did this code successfully run on Leetcode : Yes
+# Any problem you faced while coding this : N/A
+
+# Your code here along with comments explaining your approach
+class Solution:
+    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+        #Base Case
+        if(head == None):
+            return None
+        #Initialise a dummy node
+        dummy = ListNode(-1)
+        #Place it before the head
+        dummy.next = head
+        #Start slow and fast from dummy 
+        slow = dummy 
+        fast = dummy
+        #To check nodes difference between fast and slow
+        count = 0
+        #Traverse fast pointer until it reaches nth node of list
+        while(count<=n):
+            fast=fast.next
+            count+=1
+        #Traverse slow from head and fast from the previous loop node
+        while(fast!=None):
+            slow=slow.next
+            fast=fast.next
+        #Delete the node at slow+1 position
+        temp=slow.next
+        slow.next = slow.next.next
+        temp = None
+        #return head
+        return dummy.next
