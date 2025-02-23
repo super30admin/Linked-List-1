@@ -1,0 +1,8 @@
+Time Complexity : O(n)
+Space Complexity : O(1)
+Did this code successfully run on Leetcode : Yes
+Any problem you faced while coding this : No
+
+
+Your code here along with comments explaining your approach in three sentences only
+I used 2 pointer approach. Fast pointer and slow pointer approach. Fast pointer moves 2x the speed of the slow pointer and if fast pointer becomes null, then there is no loop, else there will arise a scenario where fast and slow pointer point to a same node. Once the condition arrives, we meet 2 pointers in the middle and obtain the loop beginning point node
