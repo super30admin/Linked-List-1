@@ -1,0 +1,26 @@
+public class Solution {
+    public ListNode detectCycle(ListNode head) {
+        /* (1) Approach with help of Auxiliary DS like a hashset and store the CurrentNode reference -- if you notice the current index in the HasSet then return it else we will reach the end of the array  */
+        if(head == null) return null;
+        //(2) Approach without any auxiliary Datastructure - Folyd's Tortoise and Hare algo
+
+        ListNode slow = head;
+        ListNode fast = head;
+        //sub-problem 1 : identify the point of intersection 
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+            if(fast == slow) break;
+        }
+        
+        if(fast == null || fast.next == null) return null;
+
+        // iterate again till slow and start meet which becomes the 
+        fast = head;
+        while(fast != slow){
+            fast = fast.next;
+            slow = slow.next;
+        }
+        return slow;
+    }
+}
