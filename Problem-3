@@ -1,0 +1,49 @@
+// Time Complexity : O(n)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : None
+
+// Declare a slow and fast pointer(moves in 2x speed)
+// If they meet at any node then cycle exists otherwise return null
+// If cycle exists start 1 pointer from the head of the list and other from the meeting point
+// Move both pointers in same speed, they will meet at the head of the cycle
+
+// Your code here along with comments explaining your approach
+
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode detectCycle(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head;
+        boolean flag = false;
+        // Check if slow and fast pointers meet or fast reaches null
+        while(fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if(slow == fast) {
+                flag = true;
+                break;
+            }
+        }
+        // if there is no cycle return null
+        if(!flag)
+            return null;
+        // find head of cycle
+        slow = head;
+        while(slow != fast) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+        return slow;
+    }
+}

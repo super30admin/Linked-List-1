@@ -1,0 +1,35 @@
+// Time Complexity : O(n)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : None
+
+// Use a previous pointer to keep track of the pointer before the current pointer and a next pointer for keeping track of the next pointer of the current node
+// reverse the next pointer of the current node to the previous pointer
+// return the previous node
+
+// Your code here along with comments explaining your approach
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        ListNode prev = null;
+        ListNode curr = head;
+        // reverse the next pointer of the current node to previous node
+        while(curr != null) {
+            ListNode nextPtr = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = nextPtr;
+        }
+        return prev;
+    }
+}

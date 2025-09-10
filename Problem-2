@@ -1,0 +1,45 @@
+// Time Complexity : O(n)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : None
+
+// Start the fast pointer from the node that is n nodes away from the head of list
+// Move both pointers till fast pointer reaches end of list
+// The node after the slow pointer node is the one to be removed
+
+// Your code here along with comments explaining your approach
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        ListNode slow = dummy;
+        ListNode fast = dummy;
+        int count = 0;
+        // Move fast pointer such that number of nodes between the 2 pointers is n
+        while(count <= n) {
+            fast = fast.next;
+            count++;
+        }
+        // Move pointers till fast reaches end of list
+        while(fast != null) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+        // remove the node after the slow pointer node
+        ListNode temp = slow.next;
+        slow.next = temp.next;
+        temp.next = null;
+        return dummy.next;
+    }
+}
