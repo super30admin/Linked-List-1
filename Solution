@@ -1,0 +1,39 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+
+ // TC- O(n)
+ // SC- O(1)
+
+ // We use 3 pointers to keep track of prev, current and fast node to reverse. 
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        if(head==null || head.next==null){
+            return head;
+        }
+
+        ListNode prev = null;
+        ListNode curr = head;
+        ListNode fast = curr.next;
+
+        // iterate over Linked list and change curr to poin to prev
+        while(fast!=null){
+            curr.next = prev; 
+            prev = curr;
+            curr = fast;
+            fast = fast.next;
+        }
+
+        curr.next = prev;
+
+        // retun curr as head which is last node of original Linked List
+        return curr;
+    }
+}
