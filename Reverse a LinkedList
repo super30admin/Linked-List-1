@@ -1,0 +1,33 @@
+// We go through the list using a helper and pass the previous node along.
+// At each step, we reverse the next pointer to point to the previous node.
+// Once we reach the end, the new head is the last non-null node.
+
+// time o(n)
+// space o(n)
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode reverseList(ListNode head) {
+       return helper(head, null);
+    }
+
+    private ListNode helper(ListNode curr, ListNode prev){
+        // base case
+        if(curr == null) return prev;
+        // logic
+        ListNode temp = curr.next;
+        curr.next = prev;
+        prev = curr;
+        curr = temp;
+        return helper(curr, prev);
+    }
+}
